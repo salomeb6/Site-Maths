@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Chapitre 4 - Distance et cercle</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: #222;
+    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #222;
+    padding-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    color: #c62828;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    color: #6b6b6b;
+  }
+
+  .def {
+    border-left: 4px solid #2e7d32;
+    padding: 8px 14px;
+    margin: 10px 0;
+  }
+
+  .def-label {
+    font-weight: 700;
+    color: #1b5e20;
+  }
+
+  .ex {
+    border-left: 4px solid #1565c0;
+    padding: 8px 14px;
+    margin: 8px 0 14px 0;
+    font-size: 15px;
+  }
+
+  .ex-label {
+    font-weight: 700;
+    color: #0d47a1;
+  }
+
+  .prop {
+    border-left: 4px solid #ad1457;
+    padding: 8px 14px;
+    margin: 10px 0;
+  }
+
+  .prop-label {
+    font-weight: 700;
+    color: #880e4f;
+  }
+
+  .remarque {
+    border-left: 4px solid #e65100;
+    padding: 8px 14px;
+    margin: 10px 0;
+  }
+
+  .remarque-label {
+    font-weight: 700;
+    color: #b23c00;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  th, td {
+    border: 1px solid #999;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    background: #f0f0f0;
+    text-align: center;
+  }
+
+  .schema-block {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .schemas-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+
+  .schema-item {
+    text-align: center;
+    max-width: 220px;
+  }
+
+  .dessin-libre {
+    border: 1.5px dashed #999;
+    border-radius: 6px;
+    height: 120px;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .annexe-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    background: #eee;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  @media print {
+    body { padding: 15px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<a href='/6e/6e-index' style='display:inline-block; margin-bottom:20px; color:#666; text-decoration:none; font-size:14px;'>&larr; Retour aux chapitres de 6e</a>
+<h1>Chapitre 4 : Distance et cercle</h1>
+
+<h2>I. Droites et segments</h2>
+<div class="def"><span class="def-label">Définition :</span> La <b>distance</b> entre les points A et B est la longueur du segment [AB]. Elle est notée AB.</div>
+
+<div class="def"><span class="def-label">Définition :</span> Deux droites sont <b>sécantes</b> si elles se coupent en un seul point, appelé <b>point d'intersection</b> de ces deux droites.
+<ul style="margin-top:6px;">
+  <li>Deux droites sont <b>perpendiculaires</b> si elles sont sécantes en formant un angle droit.</li>
+  <li>Deux droites sont <b>parallèles</b> si elles ne sont pas sécantes.</li>
+</ul>
+</div>
+
+<div class="schemas-row">
+  <div class="schema-item">
+    <svg width="180" height="100" viewBox="0 0 180 100">
+      <line x1="20" y1="20" x2="160" y2="80" stroke="#c62828" stroke-width="1.5"/>
+      <line x1="20" y1="80" x2="160" y2="20" stroke="#1565c0" stroke-width="1.5"/>
+      <text x="15" y="16" font-size="12" font-weight="700" fill="#c62828">(d1)</text>
+      <text x="150" y="16" font-size="12" font-weight="700" fill="#1565c0">(d2)</text>
+      <text x="95" y="42" font-size="12" font-weight="700">A</text>
+    </svg>
+    <p style="font-size:13px; margin:4px 0 0;">Les droites (d1) et (d2) sont ............................... en A.</p>
+  </div>
+
+  <div class="schema-item">
+    <svg width="180" height="100" viewBox="0 0 180 100">
+      <line x1="20" y1="50" x2="160" y2="50" stroke="#c62828" stroke-width="1.5"/>
+      <line x1="90" y1="10" x2="90" y2="90" stroke="#1565c0" stroke-width="1.5"/>
+      <rect x="90" y="35" width="15" height="15" fill="none" stroke="#e65100" stroke-width="1.5"/>
+      <text x="15" y="46" font-size="12" font-weight="700" fill="#c62828">(d1)</text>
+      <text x="95" y="20" font-size="12" font-weight="700" fill="#1565c0">(d2)</text>
+    </svg>
+    <p style="font-size:13px; margin:4px 0 0;">Les droites (d1) et (d2) sont ............................... On note (d1)&perp;(d2)</p>
+  </div>
+
+  <div class="schema-item">
+    <svg width="180" height="100" viewBox="0 0 180 100">
+      <line x1="20" y1="70" x2="160" y2="30" stroke="#c62828" stroke-width="1.5"/>
+      <line x1="20" y1="90" x2="160" y2="50" stroke="#1565c0" stroke-width="1.5"/>
+      <text x="15" y="55" font-size="12" font-weight="700" fill="#c62828">(d1)</text>
+      <text x="115" y="80" font-size="12" font-weight="700" fill="#1565c0">(d2)</text>
+    </svg>
+    <p style="font-size:13px; margin:4px 0 0;">Les droites (d1) et (d2) sont ...............................</p>
+  </div>
+</div>
+
+<h2>II. Cercle et disque</h2>
+<h3>A. Le cercle</h3>
+<div class="def"><span class="def-label">Définition :</span> Le <b>cercle</b> de centre O et de rayon R est constitué de tous les points situés à la même distance R du point O.</div>
+<div class="ex"><span class="ex-label">Exemple :</span> O est le centre du cercle. La longueur OA est le <b>rayon</b> du cercle.
+<div class="schema-block">
+  <svg width="160" height="140" viewBox="0 0 160 140">
+    <circle cx="75" cy="70" r="50" fill="none" stroke="#222" stroke-width="1.5"/>
+    <text x="75" y="70" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="60" y="60" font-size="13" font-weight="700">O</text>
+    <line x1="75" y1="70" x2="110" y2="35" stroke="#6a1b9a" stroke-width="1.5"/>
+    <text x="110" y="35" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="118" y="30" font-size="13" font-weight="700">A</text>
+  </svg>
+</div>
+</div>
+
+<h3>Vocabulaire du cercle</h3>
+<div class="schema-block">
+  <svg width="380" height="320" viewBox="-80 0 380 320">
+    <circle cx="160" cy="160" r="120" fill="none" stroke="#222" stroke-width="1.5"/>
+    <line x1="160" y1="40" x2="160" y2="280" stroke="#2e7d32" stroke-width="1.5"/>
+    <line x1="160" y1="160" x2="273" y2="119" stroke="#6a1b9a" stroke-width="1.5"/>
+    <text x="160" y="160" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="145" y="150" font-size="13" font-weight="700">O</text>
+    <text x="150" y="172" font-size="13" font-weight="700" fill="#222" text-anchor="end">Centre</text>
+    <text x="273" y="119" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="280" y="112" font-size="13" font-weight="700">A</text>
+    <text x="216" y="130" font-size="13" font-weight="700" fill="#6a1b9a" text-anchor="middle" transform="rotate(-20 216 130)">Rayon</text>
+    <text x="160" y="40" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="148" y="35" font-size="13" font-weight="700">B</text>
+    <text x="160" y="280" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="148" y="298" font-size="13" font-weight="700">C</text>
+    <text x="163" y="90" font-size="13" font-weight="700" fill="#2e7d32">Diamètre</text>
+
+    <path d="M 56 100 A 120 120 0 0 0 56 220" fill="none" stroke="#fbc02d" stroke-width="1.5"/>
+    <line x1="56" y1="100" x2="56" y2="220" stroke="#c2185b" stroke-width="1.5"/>
+    <text x="56" y="100" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="35" y="95" font-size="13" font-weight="700">D</text>
+    <text x="56" y="220" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="35" y="230" font-size="13" font-weight="700">E</text>
+    <text x="65" y="145" font-size="13" font-weight="700" fill="#c2185b">Corde</text>
+    <text x="30" y="163" font-size="13" font-weight="700" fill="#fbc02d" text-anchor="end">Arc de cercle</text>
+  </svg>
+</div>
+
+<table>
+<colgroup>
+  <col style="width:65%;">
+  <col style="width:35%;">
+</colgroup>
+<tr><td><b>Le centre</b> est le point équidistant de tous les points qui constituent le cercle.</td><td></td></tr>
+<tr><td><b>Un rayon</b> est un segment joignant un point du cercle à son centre.</td><td></td></tr>
+<tr><td><b>Un diamètre</b> est un segment joignant deux points du cercle et passant par son centre.</td><td></td></tr>
+<tr><td><b>Une corde</b> est un segment joignant deux points du cercle.</td><td></td></tr>
+<tr><td><b>Un arc de cercle</b> est une portion du cercle comprise entre deux points du cercle.</td><td></td></tr>
+</table>
+
+<div class="remarque"><span class="remarque-label">Remarques :</span>
+<ul style="margin-top:4px;">
+  <li>Le diamètre mesure le double du rayon.</li>
+  <li>Le milieu d'un diamètre est le centre du cercle.</li>
+</ul>
+</div>
+
+<h3>Exercices d'application</h3>
+<div class="ex"><span class="ex-label">Exercice d'application :</span> Trace le cercle
+<ul style="margin-top:6px; display:flex; gap:20px; list-style-type:disc; padding-left:18px;">
+  <li style="flex:1;">de centre O et de rayon 3 cm
+    <div style="height:200px;"></div>
+  </li>
+  <li style="flex:1; margin-left:20px;">de diamètre [AB]
+    <div style="height:80px;"></div>
+    <svg width="200" height="40" viewBox="0 0 200 40" style="margin-top:6px; display:block;">
+      <line x1="20" y1="20" x2="180" y2="20" stroke="#222" stroke-width="1.5"/>
+      <text x="14" y="12" font-size="13" font-weight="700">A</text>
+      <text x="20" y="20" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+      <text x="176" y="12" font-size="13" font-weight="700">B</text>
+      <text x="180" y="20" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    </svg>
+    <div style="height:80px;"></div>
+  </li>
+</ul>
+</div>
+
+<h3>B. Le disque</h3>
+<div class="def"><span class="def-label">Définition :</span> Le <b>disque</b> de centre O et de rayon R est constitué de tous les points dont la distance au point O est inférieure ou égale à <b>R</b>.</div>
+<div class="ex"><span class="ex-label">Exemple :</span> Sur cette figure :
+<ul style="margin-top:4px;">
+  <li>Les points A et E appartiennent au cercle de centre O et de rayon 2,5.</li>
+  <li>Les points A, C, B, E et O appartiennent au disque de centre O et de rayon 2,5.</li>
+  <li>Le point D n'appartient pas au disque de centre O et de rayon 2,5.</li>
+</ul>
+<div class="schema-block" style="display:flex; align-items:center; justify-content:center; gap:20px;">
+  <svg width="240" height="220" viewBox="0 0 240 220">
+    <circle cx="110" cy="100" r="65" fill="#d8c3e8" fill-opacity="0.6" stroke="#6a1b9a" stroke-width="1.5"/>
+    <text x="110" y="100" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="98" y="90" font-size="13" font-weight="700">O</text>
+
+    <text x="96" y="50" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="83" y="42" font-size="13" font-weight="700">C</text>
+    <text x="81" y="122" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="60" y="130" font-size="13" font-weight="700">B</text>
+    <text x="105" y="165" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="98" y="184" font-size="13" font-weight="700">E</text>
+    <text x="161" y="60" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="168" y="52" font-size="13" font-weight="700">A</text>
+    <text x="208" y="115" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="214" y="123" font-size="13" font-weight="700">D</text>
+
+    <line x1="110" y1="100" x2="96" y2="50" stroke="#555" stroke-width="1"/>
+    <line x1="110" y1="100" x2="81" y2="122" stroke="#555" stroke-width="1"/>
+    <line x1="110" y1="100" x2="105" y2="165" stroke="#555" stroke-width="1"/>
+    <line x1="110" y1="100" x2="161" y2="60" stroke="#555" stroke-width="1"/>
+    <line x1="110" y1="100" x2="208" y2="115" stroke="#555" stroke-width="1"/>
+
+    <text x="107" y="74" font-size="11">2</text>
+    <text x="82" y="105" font-size="11">1,4</text>
+    <text x="114" y="133" font-size="11">2,5</text>
+    <text x="128" y="71" font-size="11">2,5</text>
+    <text x="145" y="96" font-size="11">3,8</text>
+  </svg>
+  <p style="margin:0; text-align:left;">A &isin; cercle et A &isin; disque<br>B &notin; cercle et B &isin; disque<br>C ............... cercle et C ............... disque<br>D ............... cercle et D ............... disque<br>E ............... cercle et E ............... disque<br>O ............... cercle et O ............... disque</p>
+</div>
+</div>
+<div class="remarque" style="margin-bottom:0;"><span class="remarque-label">Remarque :</span> Le <b>disque</b> est formé de tous les points qui sont sur le cercle et à l'intérieur du cercle.</div>
+
+<h2 style="margin-top:6px; margin-bottom:0;">III. Médiatrice d'un segment</h2>
+<div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-top:2px;">
+  <div class="def" style="flex:1; min-width:250px; margin:0;"><span class="def-label">Définition :</span> La <b>médiatrice</b> d'un segment est la droite perpendiculaire à ce segment et qui passe par son milieu.</div>
+  <div class="schema-block" style="flex:0 0 auto; margin:0; line-height:0;">
+    <svg width="220" height="130" viewBox="0 5 220 130" style="display:block;">
+      <line x1="40" y1="130" x2="180" y2="130" stroke="#222" stroke-width="1.5"/>
+      <text x="34" y="145" font-size="13" font-weight="700">A</text>
+      <text x="40" y="130" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+      <text x="184" y="145" font-size="13" font-weight="700">B</text>
+      <text x="180" y="130" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+      <line x1="110" y1="15" x2="110" y2="150" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="115" y="25" font-size="13" font-weight="700" fill="#2e7d32">Médiatrice</text>
+      <text x="110" y="130" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+      <text x="102" y="147" font-size="13" font-weight="700">I</text>
+      <rect x="110" y="118" width="12" height="12" fill="none" stroke="#e65100" stroke-width="1.5"/>
+
+      <line x1="65" y1="126" x2="65" y2="134" stroke="#222" stroke-width="1.5"/>
+      <line x1="155" y1="126" x2="155" y2="134" stroke="#222" stroke-width="1.5"/>
+
+      <line x1="110" y1="130" x2="110" y2="60" stroke="#6a1b9a" stroke-width="1.5" stroke-dasharray="3,3"/>
+      <text x="110" y="60" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+      <text x="115" y="55" font-size="13" font-weight="700">M</text>
+    </svg>
+  </div>
+</div>
+
+<div class="prop"><span class="prop-label">Propriété :</span> Un point de la médiatrice d'un segment est <b>équidistant</b> des deux extrémités de ce segment.</div>
+
+<h3>A. Construction à l'équerre</h3>
+<div class="remarque"><span class="remarque-label">Méthode :</span> Pour construire la médiatrice du segment [AB] :
+<ol style="margin-top:6px;">
+  <li>On mesure le segment [AB] et on place son milieu I.</li>
+  <li>À l'aide de l'équerre, on trace la perpendiculaire à [AB] passant par I.</li>
+  <li>On prolonge la droite à la règle. C'est la médiatrice de [AB].</li>
+</ol>
+</div>
+<div class="ex"><span class="ex-label">Exemple :</span> Tracer un segment AB = 5 cm, tracer (<i>x</i>) la médiatrice de [AB] passant par I. (avec l'équerre)
+<div style="height:180px;"></div>
+</div>
+
+<h3>B. Construction au compas</h3>
+<div class="remarque"><span class="remarque-label">Méthode :</span> Pour construire la médiatrice du segment [AB] :
+<ol style="margin-top:6px;">
+  <li>On trace un arc de cercle de centre A, avec un écartement <b>supérieur à la moitié de [AB]</b>.</li>
+  <li>Avec le même écartement, on trace un arc de cercle de centre B.</li>
+  <li>Les arcs se coupent en deux points : on trace la droite qui passe par ces deux points. C'est la médiatrice de [AB].</li>
+</ol>
+</div>
+<div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-top:16px;">
+  <div class="schema-block" style="flex:0 0 auto; margin:0;">
+    <svg width="260" height="200" viewBox="0 -10 260 200">
+      <circle cx="60" cy="90" r="100" fill="none" stroke="#1565c0" stroke-width="1"/>
+      <circle cx="200" cy="90" r="100" fill="none" stroke="#c62828" stroke-width="1"/>
+      <line x1="60" y1="90" x2="200" y2="90" stroke="#222" stroke-width="1.5"/>
+      <text x="54" y="105" font-size="13" font-weight="700">A</text>
+      <text x="60" y="90" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+      <text x="204" y="105" font-size="13" font-weight="700">B</text>
+      <text x="200" y="90" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+
+      <line x1="130" y1="12" x2="130" y2="168" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="135" y="25" font-size="13" font-weight="700" fill="#2e7d32">Médiatrice</text>
+      <text x="122" y="0" font-size="13" font-weight="700">M</text>
+      <text x="130" y="19" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+      <text x="122" y="186" font-size="13" font-weight="700">N</text>
+      <text x="130" y="161" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+
+      <text x="134" y="105" font-size="13" font-weight="700">O</text>
+      <text x="130" y="90" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+
+      <line x1="90" y1="86" x2="90" y2="94" stroke="#222" stroke-width="1.5"/>
+      <line x1="170" y1="86" x2="170" y2="94" stroke="#222" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <div class="ex" style="flex:1; min-width:220px;"><span class="ex-label">Exemple :</span> Tracer un segment CD = 6 cm, tracer (<i>y</i>) la médiatrice de [CD]. (au compas)
+    <div style="height:180px;"></div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<div class="annexe-title">Annexe à distribuer</div>
+
+<h3>Droites sécantes, perpendiculaires, parallèles</h3>
+<div class="schemas-row">
+  <div class="schema-item">
+    <svg width="180" height="100" viewBox="0 0 180 100">
+      <line x1="20" y1="20" x2="160" y2="80" stroke="#c62828" stroke-width="1.5"/>
+      <line x1="20" y1="80" x2="160" y2="20" stroke="#1565c0" stroke-width="1.5"/>
+      <text x="15" y="16" font-size="12" font-weight="700" fill="#c62828">(d1)</text>
+      <text x="150" y="16" font-size="12" font-weight="700" fill="#1565c0">(d2)</text>
+      <text x="95" y="42" font-size="12" font-weight="700">A</text>
+    </svg>
+    <p style="font-size:13px; margin:4px 0 0;">Les droites (d1) et (d2) sont ............................... en A.</p>
+  </div>
+
+  <div class="schema-item">
+    <svg width="180" height="100" viewBox="0 0 180 100">
+      <line x1="20" y1="50" x2="160" y2="50" stroke="#c62828" stroke-width="1.5"/>
+      <line x1="90" y1="10" x2="90" y2="90" stroke="#1565c0" stroke-width="1.5"/>
+      <rect x="90" y="35" width="15" height="15" fill="none" stroke="#e65100" stroke-width="1.5"/>
+      <text x="15" y="46" font-size="12" font-weight="700" fill="#c62828">(d1)</text>
+      <text x="95" y="20" font-size="12" font-weight="700" fill="#1565c0">(d2)</text>
+    </svg>
+    <p style="font-size:13px; margin:4px 0 0;">Les droites (d1) et (d2) sont ............................... On note (d1)&perp;(d2)</p>
+  </div>
+
+  <div class="schema-item">
+    <svg width="180" height="100" viewBox="0 0 180 100">
+      <line x1="20" y1="70" x2="160" y2="30" stroke="#c62828" stroke-width="1.5"/>
+      <line x1="20" y1="90" x2="160" y2="50" stroke="#1565c0" stroke-width="1.5"/>
+      <text x="15" y="55" font-size="12" font-weight="700" fill="#c62828">(d1)</text>
+      <text x="115" y="80" font-size="12" font-weight="700" fill="#1565c0">(d2)</text>
+    </svg>
+    <p style="font-size:13px; margin:4px 0 0;">Les droites (d1) et (d2) sont ...............................</p>
+  </div>
+</div>
+
+<h3>Vocabulaire du cercle</h3>
+<div class="schema-block">
+  <svg width="380" height="320" viewBox="-80 0 380 320">
+    <circle cx="160" cy="160" r="120" fill="none" stroke="#222" stroke-width="1.5"/>
+    <line x1="160" y1="40" x2="160" y2="280" stroke="#2e7d32" stroke-width="1.5"/>
+    <line x1="160" y1="160" x2="273" y2="119" stroke="#6a1b9a" stroke-width="1.5"/>
+    <text x="160" y="160" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="145" y="150" font-size="13" font-weight="700">O</text>
+    <text x="150" y="172" font-size="13" font-weight="700" fill="#222" text-anchor="end">Centre</text>
+    <text x="273" y="119" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="280" y="112" font-size="13" font-weight="700">A</text>
+    <text x="216" y="130" font-size="13" font-weight="700" fill="#6a1b9a" text-anchor="middle" transform="rotate(-20 216 130)">Rayon</text>
+    <text x="160" y="40" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="148" y="35" font-size="13" font-weight="700">B</text>
+    <text x="160" y="280" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="148" y="298" font-size="13" font-weight="700">C</text>
+    <text x="163" y="90" font-size="13" font-weight="700" fill="#2e7d32">Diamètre</text>
+
+    <path d="M 56 100 A 120 120 0 0 0 56 220" fill="none" stroke="#fbc02d" stroke-width="1.5"/>
+    <line x1="56" y1="100" x2="56" y2="220" stroke="#c2185b" stroke-width="1.5"/>
+    <text x="56" y="100" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="35" y="95" font-size="13" font-weight="700">D</text>
+    <text x="56" y="220" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="35" y="230" font-size="13" font-weight="700">E</text>
+    <text x="65" y="145" font-size="13" font-weight="700" fill="#c2185b">Corde</text>
+    <text x="30" y="163" font-size="13" font-weight="700" fill="#fbc02d" text-anchor="end">Arc de cercle</text>
+  </svg>
+</div>
+
+<h3>Le disque</h3>
+<div class="schema-block" style="display:flex; align-items:center; justify-content:center; gap:20px;">
+  <svg width="240" height="220" viewBox="0 0 240 220">
+    <circle cx="110" cy="100" r="65" fill="#d8c3e8" fill-opacity="0.6" stroke="#6a1b9a" stroke-width="1.5"/>
+    <text x="110" y="100" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="98" y="90" font-size="13" font-weight="700">O</text>
+
+    <text x="96" y="50" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="83" y="42" font-size="13" font-weight="700">C</text>
+    <text x="81" y="122" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="60" y="130" font-size="13" font-weight="700">B</text>
+    <text x="105" y="165" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="98" y="184" font-size="13" font-weight="700">E</text>
+    <text x="161" y="60" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="168" y="52" font-size="13" font-weight="700">A</text>
+    <text x="208" y="115" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="214" y="123" font-size="13" font-weight="700">D</text>
+
+    <line x1="110" y1="100" x2="96" y2="50" stroke="#555" stroke-width="1"/>
+    <line x1="110" y1="100" x2="81" y2="122" stroke="#555" stroke-width="1"/>
+    <line x1="110" y1="100" x2="105" y2="165" stroke="#555" stroke-width="1"/>
+    <line x1="110" y1="100" x2="161" y2="60" stroke="#555" stroke-width="1"/>
+    <line x1="110" y1="100" x2="208" y2="115" stroke="#555" stroke-width="1"/>
+
+    <text x="107" y="74" font-size="11">2</text>
+    <text x="82" y="105" font-size="11">1,4</text>
+    <text x="114" y="133" font-size="11">2,5</text>
+    <text x="128" y="71" font-size="11">2,5</text>
+    <text x="145" y="96" font-size="11">3,8</text>
+  </svg>
+  <p style="margin:0; text-align:left;">A &isin; cercle et A &isin; disque<br>B &notin; cercle et B &isin; disque<br>C ............... cercle et C ............... disque<br>D ............... cercle et D ............... disque<br>E ............... cercle et E ............... disque<br>O ............... cercle et O ............... disque</p>
+</div>
+
+<h3>Construction de la médiatrice au compas</h3>
+<div style="display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap;">
+  <div class="schema-block" style="flex:0 0 auto; margin:0;">
+    <svg width="260" height="200" viewBox="0 -10 260 200">
+      <circle cx="60" cy="90" r="100" fill="none" stroke="#1565c0" stroke-width="1"/>
+      <circle cx="200" cy="90" r="100" fill="none" stroke="#c62828" stroke-width="1"/>
+      <line x1="60" y1="90" x2="200" y2="90" stroke="#222" stroke-width="1.5"/>
+      <text x="54" y="105" font-size="13" font-weight="700">A</text>
+      <text x="60" y="90" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+      <text x="204" y="105" font-size="13" font-weight="700">B</text>
+      <text x="200" y="90" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+
+      <line x1="130" y1="12" x2="130" y2="168" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="135" y="25" font-size="13" font-weight="700" fill="#2e7d32">Médiatrice</text>
+      <text x="122" y="0" font-size="13" font-weight="700">M</text>
+      <text x="130" y="19" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+      <text x="122" y="186" font-size="13" font-weight="700">N</text>
+      <text x="130" y="161" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+
+      <text x="134" y="105" font-size="13" font-weight="700">O</text>
+      <text x="130" y="90" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+
+      <line x1="90" y1="86" x2="90" y2="94" stroke="#222" stroke-width="1.5"/>
+      <line x1="170" y1="86" x2="170" y2="94" stroke="#222" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <div class="ex" style="flex:1; min-width:220px;"><span class="ex-label">Exemple :</span> Tracer un segment CD = 6 cm, tracer (<i>y</i>) la médiatrice de [CD]. (au compas)
+    <div style="height:180px;"></div>
+  </div>
+</div>
+
+</body>
+</html>
+

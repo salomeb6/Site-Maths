@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapitre 4 : Dérivations - partie 2/3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A1A;
+    --muted: #595959;
+    --red: #EE220C;
+    --green: #1DB100;
+    --blue: #0076BA;
+    --orange: #F27200;
+    --pink: #D31876;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--ink);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 36px 28px 60px;
+    line-height: 1.45;
+    font-size: 11pt;
+  }
+  h1.chapitre {
+    text-align: center;
+    font-size: 18pt;
+    font-weight: 700;
+    margin: 0 0 30px;
+  }
+  h1.chapitre .partie {
+    font-size: 0.65em;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  h2.titre-I {
+    color: var(--red);
+    font-size: 12pt;
+    font-weight: 700;
+    margin: 26px 0 12px;
+  }
+  h3.titre-A {
+    color: var(--green);
+    font-size: 11pt;
+    font-weight: 600;
+    margin: 16px 0 8px;
+  }
+  p { margin: 0 0 10px; }
+  ul.puces { margin: 0 0 10px; padding-left: 22px; }
+  ul.puces li { margin-bottom: 5px; }
+  strong.label-def { color: var(--green); }
+  strong.label-prop { color: var(--pink); }
+  strong.label-rem { color: var(--orange); }
+  strong.label-ex { color: var(--blue); }
+  .instruction { font-style: italic; }
+  .box {
+    border: 1.8px dashed var(--ink);
+    border-radius: 2px;
+    padding: 14px 20px;
+    margin: 0 0 16px;
+  }
+  .box p:last-child { margin-bottom: 0; }
+  .formule { text-align: center; margin: 8px 0; }
+  .demo-titre {
+    color: var(--pink);
+    font-weight: 700;
+    font-size: 11pt;
+    margin: 20px 0 8px;
+  }
+  .espace { margin: 0 0 18px; }
+  i { font-style: italic; }
+  sup { font-size: 0.7em; }
+  .m { font-family: 'STIX Two Math', 'Cambria Math', 'Latin Modern Math', 'DejaVu Math TeX Gyre', serif; }
+  .frac {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 3px;
+    font-size: 0.92em;
+    line-height: 1.15;
+    position: relative;
+    top: 0.05em;
+  }
+  .frac .num { border-bottom: 1.4px solid currentColor; padding: 0 4px 1px; }
+  .frac .den { padding: 1px 4px 0; }
+
+  .lim { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; line-height: 1.1; margin: 0 3px; }
+  .lim .sous { font-size: 0.72em; }
+  .centre { text-align: center; }
+  .instruction .m { font-style: normal; }
+  .demo-enonce { font-style: italic; margin: 0 0 8px; }
+  .demo-enonce .m { font-style: normal; }
+  table.der { border-collapse: collapse; margin: 6px auto 10px; }
+  table.der th, table.der td { border: 1px solid var(--ink); padding: 6px 16px; text-align: center; }
+  table.der th { font-weight: 600; }
+  ol.ex { padding-left: 22px; margin: 4px 0 4px; }
+  ol.ex li { margin-bottom: 4px; }
+  .corr { margin: 0 0 12px 22px; padding-left: 10px; border-left: 2px solid #0076BA; }
+  .corr p { margin: 0 0 5px; }
+  @media print { h2.titre-I, h3.titre-A, .demo-titre { break-after: avoid; } .box, table.der { break-inside: avoid; } }
+  @media (max-width: 700px) { table.der th, table.der td { padding: 6px 8px; } }
+
+.back { display: inline-block; margin: 0 0 18px; color: #666; text-decoration: none; font-size: 14px; font-family: 'Open Sans', Arial, sans-serif; }
+@media print { .back { display: none; } }
+@media screen { body { padding: 24px 16px 60px; } }
+</style>
+</head>
+<body>
+<a class='back' href='/1ere-spe-maths/1erespemaths-index'>&larr; Retour à la 1ère Spé Maths</a>
+
+<h1 class="chapitre">Chapitre 4 : Dérivations <span class="partie">partie 2/3</span></h1>
+<h2 class="titre-I" style="margin-top:0;">I. Fonction dérivée</h2>
+<div class="box">
+<p><strong class="label-def">Définition :</strong> Soit <span class="m">𝑓</span> une fonction définie sur un intervalle <span class="m">𝐼</span>.</p>
+<p>On dit que <span class="m">𝑓</span> est <strong>dérivable sur <span class="m">𝐼</span></strong> si elle est dérivable en tout réel <span class="m">𝑥</span> de <span class="m">𝐼</span>.</p>
+<p>La fonction qui à tout réel <span class="m">𝑥</span> de <span class="m">𝐼</span> associe le nombre dérivé <span class="m">𝑓′(𝑥)</span> est appelée <strong>fonction dérivée</strong> de <span class="m">𝑓</span>. On la note <span class="m">𝑓′</span>.</p>
+</div>
+<p><strong class="label-rem">Remarque :</strong> Dans la partie 1, on a montré que pour <span class="m">𝑓(𝑥) = 𝑥²</span>, <span class="m">𝑓′(2) = 4</span>. Plus généralement, on va montrer que pour tout réel <span class="m">𝑎</span>, <span class="m">𝑓′(𝑎) = 2𝑎</span> : la fonction dérivée de <span class="m">𝑓</span> est la fonction <span class="m">𝑓′ : 𝑥 ↦ 2𝑥</span>.</p>
+<h2 class="titre-I">II. Dérivées des fonctions usuelles</h2>
+<div class="box">
+<p><strong class="label-prop">Propriété :</strong> Le tableau suivant donne les fonctions dérivées des fonctions usuelles (<span class="m">𝑘</span> est un réel et <span class="m">𝑛</span> un entier naturel non nul).</p>
+<table class="der"><tr><th>Fonction</th><th>Fonction dérivée</th><th>Dérivable sur</th></tr><tr><td><span class="m">𝑓(𝑥) = 𝑘</span></td><td><span class="m">𝑓′(𝑥) = 0</span></td><td><span class="m">ℝ</span></td></tr><tr><td><span class="m">𝑓(𝑥) = 𝑥</span></td><td><span class="m">𝑓′(𝑥) = 1</span></td><td><span class="m">ℝ</span></td></tr><tr><td><span class="m">𝑓(𝑥) = 𝑥²</span></td><td><span class="m">𝑓′(𝑥) = 2𝑥</span></td><td><span class="m">ℝ</span></td></tr><tr><td><span class="m">𝑓(𝑥) = 𝑥³</span></td><td><span class="m">𝑓′(𝑥) = 3𝑥²</span></td><td><span class="m">ℝ</span></td></tr><tr><td><span class="m">𝑓(𝑥) = 𝑥<sup>𝑛</sup></span></td><td><span class="m">𝑓′(𝑥) = 𝑛𝑥<sup>𝑛−1</sup></span></td><td><span class="m">ℝ</span></td></tr><tr><td><span class="m">𝑓(𝑥) = </span><span class="frac m"><span class="num">1</span><span class="den">𝑥</span></span></td><td><span class="m">𝑓′(𝑥) = −</span><span class="frac m"><span class="num">1</span><span class="den">𝑥²</span></span></td><td><span class="m">]−∞ ; 0[ ∪ ]0 ; +∞[</span></td></tr><tr><td><span class="m">𝑓(𝑥) = √𝑥</span></td><td><span class="m">𝑓′(𝑥) = </span><span class="frac m"><span class="num">1</span><span class="den">2√𝑥</span></span></td><td><span class="m">]0 ; +∞[</span></td></tr></table>
+</div>
+<p><strong class="label-rem">Remarque :</strong> La fonction racine carrée est définie sur <span class="m">[0 ; +∞[</span> mais elle n'est dérivable que sur <span class="m">]0 ; +∞[</span> : elle n'est pas dérivable en <span class="m">0</span>.</p>
+<p><strong class="label-ex">Exemple :</strong> <span class="instruction">Déterminer la fonction dérivée de chacune des fonctions suivantes, puis calculer le nombre dérivé demandé.</span></p>
+<ol class="ex" start="1"><li><span class="m">𝑓(𝑥) = 𝑥³</span> sur <span class="m">ℝ</span>, puis <span class="m">𝑓′(2)</span>.</li></ol>
+<div class="espace" style="height:38px;"></div>
+<ol class="ex" start="2"><li><span class="m">𝑔(𝑥) = </span><span class="frac m"><span class="num">1</span><span class="den">𝑥</span></span> sur <span class="m">]−∞ ; 0[ ∪ ]0 ; +∞[</span>, puis <span class="m">𝑔′(−2)</span> et <span class="m">𝑔′(</span><span class="frac m"><span class="num">1</span><span class="den">2</span></span><span class="m">)</span>.</li></ol>
+<div class="espace" style="height:38px;"></div>
+<ol class="ex" start="3"><li><span class="m">ℎ(𝑥) = 𝑥<sup>5</sup></span> sur <span class="m">ℝ</span>, puis <span class="m">ℎ′(−1)</span> et <span class="m">ℎ′(2)</span>.</li></ol>
+<div class="espace" style="height:38px;"></div>
+<p class="demo-titre">Démonstration : fonction dérivée de la fonction carré (AU PROGRAMME DU BAC) :</p>
+<p class="demo-enonce">Soit <span class="m">𝑓</span> la fonction définie sur <span class="m">ℝ</span> par <span class="m">𝑓(𝑥) = 𝑥²</span>. Montrer que <span class="m">𝑓</span> est dérivable sur <span class="m">ℝ</span> et que, pour tout réel <span class="m">𝑥</span>, <span class="m">𝑓′(𝑥) = 2𝑥</span>.</p>
+<div class="espace" style="height:140px;"></div>
+<p class="demo-titre">Démonstration : fonction dérivée de la fonction inverse (AU PROGRAMME DU BAC) :</p>
+<p class="demo-enonce">Soit <span class="m">𝑓</span> la fonction définie sur <span class="m">]−∞ ; 0[ ∪ ]0 ; +∞[</span> par <span class="m">𝑓(𝑥) = </span><span class="frac m"><span class="num">1</span><span class="den">𝑥</span></span>. Montrer que <span class="m">𝑓</span> est dérivable sur cet ensemble et que, pour tout réel <span class="m">𝑥 ≠ 0</span>, <span class="m">𝑓′(𝑥) = −</span><span class="frac m"><span class="num">1</span><span class="den">𝑥²</span></span>.</p>
+<div class="espace" style="height:160px;"></div>
+<p class="demo-titre">Démonstration : la fonction racine carrée n'est pas dérivable en 0 (AU PROGRAMME DU BAC) :</p>
+<p class="demo-enonce">Soit <span class="m">𝑓</span> la fonction définie sur <span class="m">[0 ; +∞[</span> par <span class="m">𝑓(𝑥) = √𝑥</span>. Montrer que <span class="m">𝑓</span> n'est pas dérivable en <span class="m">0</span>.</p>
+<div class="espace" style="height:110px;"></div>
+<h2 class="titre-I">III. Opérations sur les fonctions dérivables</h2>
+<p>Dans toute cette partie, <span class="m">𝑢</span> et <span class="m">𝑣</span> sont deux fonctions dérivables sur un intervalle <span class="m">𝐼</span> et <span class="m">𝑘</span> est un réel.</p>
+<h3 class="titre-A">A. Somme et produit par un réel</h3>
+<div class="box">
+<p><strong class="label-prop">Propriété :</strong></p>
+<ul class="puces">
+<li>La fonction <span class="m">𝑢 + 𝑣</span> est dérivable sur <span class="m">𝐼</span> et <span class="m">(𝑢 + 𝑣)′ = 𝑢′ + 𝑣′</span>.</li>
+<li>La fonction <span class="m">𝑘𝑢</span> est dérivable sur <span class="m">𝐼</span> et <span class="m">(𝑘𝑢)′ = 𝑘𝑢′</span>.</li>
+</ul>
+</div>
+<p><strong class="label-rem">Remarque :</strong> Toute fonction polynôme est donc dérivable sur <span class="m">ℝ</span>. En particulier, pour <span class="m">𝑓(𝑥) = 𝑎𝑥² + 𝑏𝑥 + 𝑐</span>, on obtient <span class="m">𝑓′(𝑥) = 2𝑎𝑥 + 𝑏</span>.</p>
+<p><strong class="label-ex">Exemple :</strong> <span class="instruction">Déterminer la fonction dérivée de chacune des fonctions suivantes, définies sur <span class="m">ℝ</span>.</span></p>
+<ol class="ex" start="1"><li><span class="m">𝑓(𝑥) = 2𝑥² − 5𝑥 + 3</span></li></ol>
+<div class="espace" style="height:32px;"></div>
+<ol class="ex" start="2"><li><span class="m">𝑔(𝑥) = 4𝑥³ − 6𝑥² + 7𝑥 − 1</span></li></ol>
+<div class="espace" style="height:32px;"></div>
+<ol class="ex" start="3"><li><span class="m">ℎ(𝑥) = −3𝑥<sup>4</sup> + 2√𝑥</span> sur <span class="m">]0 ; +∞[</span></li></ol>
+<div class="espace" style="height:32px;"></div>
+<h3 class="titre-A">B. Produit</h3>
+<div class="box">
+<p><strong class="label-prop">Propriété :</strong> La fonction <span class="m">𝑢𝑣</span> est dérivable sur <span class="m">𝐼</span> et :</p>
+<p class="formule"><span class="m">(𝑢𝑣)′ = 𝑢′𝑣 + 𝑢𝑣′</span></p>
+</div>
+<p><strong class="label-ex">Exemple :</strong> <span class="instruction">Déterminer la fonction dérivée de chacune des fonctions suivantes.</span></p>
+<ol class="ex" start="1"><li><span class="m">𝑓(𝑥) = (3𝑥 − 2)(𝑥² + 4)</span> sur <span class="m">ℝ</span>.</li></ol>
+<div class="espace" style="height:55px;"></div>
+<ol class="ex" start="2"><li><span class="m">𝑔(𝑥) = (2𝑥 + 1)√𝑥</span> sur <span class="m">]0 ; +∞[</span>.</li></ol>
+<div class="espace" style="height:55px;"></div>
+<p class="demo-titre">Démonstration de la propriété (AU PROGRAMME DU BAC) :</p>
+<p class="demo-enonce">Soit <span class="m">𝑢</span> et <span class="m">𝑣</span> deux fonctions dérivables sur <span class="m">𝐼</span> et <span class="m">𝑓</span> la fonction définie sur <span class="m">𝐼</span> par <span class="m">𝑓(𝑥) = 𝑢(𝑥) × 𝑣(𝑥)</span>. Montrer que, pour tout réel <span class="m">𝑥</span> de <span class="m">𝐼</span>, <span class="m">𝑓′(𝑥) = 𝑢′(𝑥)𝑣(𝑥) + 𝑢(𝑥)𝑣′(𝑥)</span>.</p>
+<div class="espace" style="height:190px;"></div>
+<h3 class="titre-A">C. Inverse et quotient</h3>
+<div class="box">
+<p><strong class="label-prop">Propriété :</strong> Si de plus <span class="m">𝑣</span> ne s'annule pas sur <span class="m">𝐼</span> :</p>
+<ul class="puces">
+<li>La fonction <span class="frac m"><span class="num">1</span><span class="den">𝑣</span></span> est dérivable sur <span class="m">𝐼</span> et <span class="m">(</span><span class="frac m"><span class="num">1</span><span class="den">𝑣</span></span><span class="m">)′ = −</span><span class="frac m"><span class="num">𝑣′</span><span class="den">𝑣²</span></span> ;</li>
+<li>La fonction <span class="frac m"><span class="num">𝑢</span><span class="den">𝑣</span></span> est dérivable sur <span class="m">𝐼</span> et <span class="m">(</span><span class="frac m"><span class="num">𝑢</span><span class="den">𝑣</span></span><span class="m">)′ = </span><span class="frac m"><span class="num">𝑢′𝑣 − 𝑢𝑣′</span><span class="den">𝑣²</span></span>.</li>
+</ul>
+</div>
+<p><strong class="label-ex">Exemple :</strong> <span class="instruction">Déterminer la fonction dérivée de chacune des fonctions suivantes.</span></p>
+<ol class="ex" start="1"><li><span class="m">𝑓(𝑥) = </span><span class="frac m"><span class="num">1</span><span class="den">2𝑥 + 3</span></span> sur <span class="m">]−</span><span class="frac m"><span class="num">3</span><span class="den">2</span></span><span class="m"> ; +∞[</span>.</li></ol>
+<div class="espace" style="height:60px;"></div>
+<ol class="ex" start="2"><li><span class="m">𝑔(𝑥) = </span><span class="frac m"><span class="num">2𝑥 + 1</span><span class="den">𝑥 − 3</span></span> sur <span class="m">]3 ; +∞[</span>.</li></ol>
+<div class="espace" style="height:60px;"></div>
+<h3 class="titre-A">D. Fonction <span class="m">𝑥 ↦ 𝑔(𝑎𝑥 + 𝑏)</span></h3>
+<div class="box">
+<p><strong class="label-prop">Propriété :</strong> Soit <span class="m">𝑎</span> et <span class="m">𝑏</span> deux réels et <span class="m">𝑔</span> une fonction dérivable sur un intervalle <span class="m">𝐽</span>. Soit <span class="m">𝑓</span> la fonction définie par <span class="m">𝑓(𝑥) = 𝑔(𝑎𝑥 + 𝑏)</span> pour tout réel <span class="m">𝑥</span> tel que <span class="m">𝑎𝑥 + 𝑏</span> appartienne à <span class="m">𝐽</span>.</p>
+<p>Alors <span class="m">𝑓</span> est dérivable et :</p>
+<p class="formule"><span class="m">𝑓′(𝑥) = 𝑎 × 𝑔′(𝑎𝑥 + 𝑏)</span></p>
+</div>
+<p><strong class="label-ex">Exemple :</strong> <span class="instruction">Déterminer la fonction dérivée de chacune des fonctions suivantes.</span></p>
+<ol class="ex" start="1"><li><span class="m">𝑓(𝑥) = (3𝑥 + 1)<sup>4</sup></span> sur <span class="m">ℝ</span>.</li></ol>
+<div class="espace" style="height:50px;"></div>
+<ol class="ex" start="2"><li><span class="m">𝑔(𝑥) = √(4𝑥 − 2)</span> sur <span class="m">]</span><span class="frac m"><span class="num">1</span><span class="den">2</span></span><span class="m"> ; +∞[</span>.</li></ol>
+<div class="espace" style="height:50px;"></div>
+
+</body>
+</html>

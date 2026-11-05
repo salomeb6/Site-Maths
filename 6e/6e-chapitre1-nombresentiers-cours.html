@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Chapitre 1 - Les nombres entiers</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: #222;
+    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #222;
+    padding-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    color: #c62828;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    color: #6b6b6b;
+  }
+
+  .def {
+    border-left: 4px solid #2e7d32;
+    padding: 8px 14px;
+    margin: 10px 0;
+  }
+
+  .def-label {
+    font-weight: 700;
+    color: #1b5e20;
+  }
+
+  .ex {
+    border-left: 4px solid #1565c0;
+    padding: 8px 14px;
+    margin: 8px 0 14px 0;
+    font-size: 15px;
+  }
+
+  .ex-label {
+    font-weight: 700;
+    color: #0d47a1;
+  }
+
+  .prop {
+    border-left: 4px solid #ad1457;
+    padding: 8px 14px;
+    margin: 10px 0;
+  }
+
+  .prop-label {
+    font-weight: 700;
+    color: #880e4f;
+  }
+
+  .remarque {
+    border-left: 4px solid #e65100;
+    padding: 8px 14px;
+    margin: 10px 0;
+  }
+
+  .remarque-label {
+    font-weight: 700;
+    color: #b23c00;
+  }
+
+  .coller-ici {
+    border: 2px dashed #999;
+    border-radius: 6px;
+    padding: 8px 14px;
+    margin: 10px 0;
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+  }
+
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .annexe-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    background: #eee;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .annexe-sub {
+    font-size: 13px;
+    text-align: center;
+    color: #555;
+    margin-top: -12px;
+    margin-bottom: 24px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  th, td {
+    border: 1px solid #999;
+    padding: 6px 8px;
+    text-align: center;
+  }
+
+  th {
+    background: #f0f0f0;
+  }
+
+  .num-table th {
+    font-size: 13px;
+  }
+
+  .num-table td {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .num-classe {
+    background: #f5f5f5;
+    font-weight: 700;
+  }
+
+  .tn-table {
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .tn-table th, .tn-table td {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 8px 14px;
+  }
+
+  .tn-table .tn-groupe {
+    font-size: 17px;
+    font-weight: 700;
+    border-bottom: 2px solid #000;
+    padding: 10px 14px;
+  }
+
+  .tn-table .tn-sub {
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .tn-table .tn-cent { background: #b0b0b0; }
+  .tn-table .tn-diz { background: #d8d8d8; }
+  .tn-table .tn-unit { background: #f0f0f0; }
+
+  .tn-table .tn-nombre {
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .tn-table .tn-start {
+    border-left: 3px solid #000;
+  }
+
+  .division-block {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .division-table td {
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .op-table {
+    border-collapse: collapse;
+    font-weight: 700;
+    font-size: 16px;
+    width: auto;
+  }
+
+  .op-table td {
+    border: none;
+    text-align: right;
+    padding: 2px 6px;
+  }
+
+  .op-table .op-trait td {
+    border-top: 2px solid #333;
+  }
+
+  .equation-block {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    margin: 10px 0;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .eq-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .eq-num {
+    padding: 2px 6px;
+  }
+
+  .bubble {
+    font-size: 11px;
+    font-weight: 700;
+    border: 2px dashed;
+    border-radius: 14px;
+    padding: 2px 10px;
+    white-space: nowrap;
+  }
+
+  .bubble-terme {
+    color: #1b5e20;
+    border-color: #2e7d32;
+  }
+
+  .bubble-resultat {
+    color: #b23c00;
+    border-color: #e65100;
+  }
+
+  .droite-graduee {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  @media print {
+    body { padding: 15px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<a href='/6e/6e-index' style='display:inline-block; margin-bottom:20px; color:#666; text-decoration:none; font-size:14px;'>&larr; Retour aux chapitres de 6e</a>
+<h1>Chapitre 1 : Les nombres entiers</h1>
+
+<h2>I. La numération</h2>
+<div class="def">
+  <span class="def-label">Définition :</span> Il existe dix <b>chiffres</b> : 0 ; 1 ; 2 ; 3 ; 4 ; 5 ; 6 ; 7 ; 8 ; 9. On écrit les nombres avec ces chiffres.
+</div>
+<div class="ex"><span class="ex-label">Exemple :</span> Le nombre 150 396 s'écrit avec les chiffres 1 ; 5 ; 0 ; 3 ; 9 et 6</div>
+
+<h3>A. À savoir écrire parfaitement</h3>
+<table class="num-table">
+<tr><td>0 : zéro</td><td>10 : dix</td><td>20 : vingt</td></tr>
+<tr><td>1 : un</td><td>11 : onze</td><td>30 : trente</td></tr>
+<tr><td>2 : deux</td><td>12 : douze</td><td>40 : quarante</td></tr>
+<tr><td>3 : trois</td><td>13 : treize</td><td>50 : cinquante</td></tr>
+<tr><td>4 : quatre</td><td>14 : quatorze</td><td>60 : soixante</td></tr>
+<tr><td>5 : cinq</td><td>15 : quinze</td><td>70 : soixante-dix</td></tr>
+<tr><td>6 : six</td><td>16 : seize</td><td>80 : quatre-vingts</td></tr>
+<tr><td>7 : sept</td><td>17 : dix-sept</td><td>90 : quatre-vingt-dix</td></tr>
+<tr><td>8 : huit</td><td>18 : dix-huit</td><td>100 : cent</td></tr>
+<tr><td>9 : neuf</td><td>19 : dix-neuf</td><td>1 000 : mille</td></tr>
+<tr><td></td><td></td><td>1 000 000 : un million</td></tr>
+<tr><td></td><td></td><td>1 000 000 000 : un milliard</td></tr>
+</table>
+
+<div class="remarque"><span class="remarque-label">Règles d'écriture :</span>
+<ul style="margin-top:4px;">
+  <li>On met un tiret entre chaque mot.</li>
+  <li>Jamais de s à "mille".</li>
+  <li>Un s à "cent" et à "quatre-vingts" seulement s'il n'y a rien après.</li>
+</ul>
+</div>
+
+<div class="remarque"><span class="remarque-label">Rappel :</span> Pour faciliter la lecture des grands nombres, on met un espace entre les classes (milliards, millions, mille, unités).</div>
+
+<div class="ex"><span class="ex-label">Exemple :</span> Écrire en toutes lettres :
+<ul style="margin-top:4px;">
+  <li>328</li>
+  <li>4 780</li>
+  <li>17 246 803 592</li>
+</ul>
+</div>
+
+<h3>B. Le tableau de numération</h3>
+<table class="tn-table">
+<tr>
+  <th class="tn-groupe" colspan="3">Classe des Milliards</th>
+  <th class="tn-groupe tn-start" colspan="3">Classe des Millions</th>
+  <th class="tn-groupe tn-start" colspan="3">Classe des Mille</th>
+  <th class="tn-groupe tn-start" colspan="3">Classe des Unités</th>
+</tr>
+<tr>
+  <th class="tn-sub tn-cent">Centaines</th><th class="tn-sub tn-diz">dizaines</th><th class="tn-sub tn-unit">unités</th>
+  <th class="tn-sub tn-cent tn-start">centaines</th><th class="tn-sub tn-diz">dizaines</th><th class="tn-sub tn-unit">unités</th>
+  <th class="tn-sub tn-cent tn-start">centaines</th><th class="tn-sub tn-diz">dizaines</th><th class="tn-sub tn-unit">unités</th>
+  <th class="tn-sub tn-cent tn-start">centaines</th><th class="tn-sub tn-diz">dizaines</th><th class="tn-sub tn-unit">unités</th>
+</tr>
+<tr>
+  <td class="tn-nombre"></td><td class="tn-nombre">1</td><td class="tn-nombre">7</td>
+  <td class="tn-nombre tn-start">2</td><td class="tn-nombre">4</td><td class="tn-nombre">6</td>
+  <td class="tn-nombre tn-start">8</td><td class="tn-nombre">0</td><td class="tn-nombre">3</td>
+  <td class="tn-nombre tn-start">5</td><td class="tn-nombre">9</td><td class="tn-nombre">2</td>
+</tr>
+</table>
+
+<h3>C. Décomposer un nombre entier</h3>
+<div class="def"><span class="def-label">Définition :</span> <b>Décomposer</b> un nombre entier, c'est l'écrire en faisant apparaître la valeur de chaque chiffre selon sa position (unités, dizaines, centaines...).</div>
+<div class="ex"><span class="ex-label">Exemple :</span> 41 029 = 4 × 10 000 + 1 × 1 000 + 0 × 100 + 2 × 10 + 9 × 1</div>
+<div class="ex"><span class="ex-label">Exemple :</span> 376 = ...............................</div>
+<div class="ex"><span class="ex-label">Exemple :</span> 305 216 = ...............................</div>
+
+<h2>II. Ranger les nombres entiers</h2>
+<h3>A. Comparer deux nombres</h3>
+<div class="def"><span class="def-label">Définition :</span> <b>Comparer</b> deux nombres, c'est dire s'ils sont égaux ou si l'un est plus grand que l'autre.<br>
+<b>&lt;</b> : plus petit que &nbsp;&nbsp; <b>&gt;</b> : plus grand que &nbsp;&nbsp; <b>=</b> : égal à</div>
+<div class="ex"><span class="ex-label">Exemple :</span>
+<table style="margin-top:6px; border:none;">
+<tr>
+  <td style="border:none; padding:4px 20px 4px 0;">718 413 ....... 718 450</td>
+  <td style="border:none; padding:4px 20px 4px 0;">3 748 ....... 3 478</td>
+  <td style="border:none; padding:4px 0;">67 032 ....... 67 302</td>
+</tr>
+<tr>
+  <td style="border:none; padding:4px 20px 4px 0;">36 428 ....... 35 842</td>
+  <td style="border:none; padding:4px 20px 4px 0;">46 328 ....... 46 330</td>
+  <td style="border:none; padding:4px 0;">11 413 ....... 12 010</td>
+</tr>
+</table>
+</div>
+
+<h3>B. Ordre croissant, ordre décroissant</h3>
+<div class="def"><span class="def-label">Définition :</span> <b>Ranger</b> dans l'<b>ordre croissant</b> : du plus petit au plus grand.<br>
+<b>Ranger</b> dans l'<b>ordre décroissant</b> : du plus grand au plus petit.</div>
+<div class="ex"><span class="ex-label">Exemple :</span> Ranger ces nombres
+<ul style="margin-top:6px; list-style-type: disc; padding-left: 18px;">
+  <li>dans l'ordre croissant<br>521 048 - 521 480 - 51 048 - 21 480<br>...............................................................................................</li>
+  <li style="margin-top:8px;">dans l'ordre décroissant<br>31 865 - 301 865 - 103 685 - 131 685<br>...............................................................................................</li>
+</ul>
+</div>
+
+<h3>C. Encadrer un nombre entier</h3>
+<div class="def"><span class="def-label">Définition :</span> <b>Encadrer</b> un nombre, c'est donner un nombre inférieur et un nombre supérieur à ce nombre.</div>
+<div class="ex"><span class="ex-label">Exemple :</span> 7 400 &lt; 7 456 &lt; 7 500 (encadrement à la centaine près)</div>
+<div class="ex"><span class="ex-label">Exemple :</span> Encadrer ces nombres
+<ul style="margin-top:6px; list-style-type: disc; padding-left: 18px;">
+  <li>à la centaine près<br>............... &lt; 326 478 &lt; ...............</li>
+  <li style="margin-top:8px;">à la dizaine près<br>............... &lt; 5 634 &lt; ...............</li>
+  <li style="margin-top:8px;">à la dizaine de mille près<br>............... &lt; 289 163 &lt; ...............</li>
+</ul>
+</div>
+
+<h2>III. Se repérer sur une droite graduée</h2>
+<div class="def"><span class="def-label">Définition :</span> Une <b>demi-droite graduée</b> est une demi-droite sur laquelle on reporte régulièrement une unité de longueur, à partir de l'origine (0). Chaque point est repéré par un nombre appelé <b>abscisse</b>.</div>
+
+<div class="droite-graduee">
+  <svg width="500" height="80" viewBox="0 0 500 80">
+    <line x1="20" y1="50" x2="480" y2="50" stroke="#222" stroke-width="2"/>
+    <polygon points="480,50 470,45 470,55" fill="#222"/>
+    <g font-family="Nunito, sans-serif" font-size="13">
+      <line x1="20" y1="45" x2="20" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="20" y="70" text-anchor="middle">0</text>
+      <line x1="60" y1="45" x2="60" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="60" y="70" text-anchor="middle">1</text>
+      <line x1="100" y1="45" x2="100" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="100" y="70" text-anchor="middle">2</text>
+      <circle cx="140" cy="50" r="4" fill="#c0392b"/>
+      <text x="140" y="35" text-anchor="middle" font-weight="700">A</text>
+      <text x="140" y="70" text-anchor="middle">3</text>
+      <line x1="180" y1="45" x2="180" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="180" y="70" text-anchor="middle">4</text>
+      <line x1="220" y1="45" x2="220" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="220" y="70" text-anchor="middle">5</text>
+      <line x1="260" y1="45" x2="260" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="260" y="70" text-anchor="middle">6</text>
+      <circle cx="300" cy="50" r="4" fill="#c0392b"/>
+      <text x="300" y="35" text-anchor="middle" font-weight="700">B</text>
+      <text x="300" y="70" text-anchor="middle">7</text>
+      <line x1="340" y1="45" x2="340" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="340" y="70" text-anchor="middle">8</text>
+      <line x1="380" y1="45" x2="380" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="380" y="70" text-anchor="middle">9</text>
+      <circle cx="420" cy="50" r="4" fill="#c0392b"/>
+      <text x="420" y="35" text-anchor="middle" font-weight="700">C</text>
+      <text x="420" y="70" text-anchor="middle">10</text>
+    </g>
+  </svg>
+</div>
+
+<div class="ex"><span class="ex-label">Exemple :</span>
+<p style="margin:4px 0 0;">Le point A a pour abscisse 3. On note A(3).<br>Le point B a pour abscisse ..... On note B(.....).<br>Le point C a pour abscisse ..... On note C(.....).<br>Place le point D(1).<br>Place le point E d'abscisse 5.</p>
+</div>
+
+<div class="page-break"></div>
+
+<div class="annexe-title">Annexe à distribuer</div>
+<div class="annexe-sub">Éléments visuels et tableaux pratiques - à coller dans le cahier</div>
+
+<h3>Les nombres à savoir écrire</h3>
+<table class="num-table">
+<tr><td>0 : zéro</td><td>10 : dix</td><td>20 : vingt</td></tr>
+<tr><td>1 : un</td><td>11 : onze</td><td>30 : trente</td></tr>
+<tr><td>2 : deux</td><td>12 : douze</td><td>40 : quarante</td></tr>
+<tr><td>3 : trois</td><td>13 : treize</td><td>50 : cinquante</td></tr>
+<tr><td>4 : quatre</td><td>14 : quatorze</td><td>60 : soixante</td></tr>
+<tr><td>5 : cinq</td><td>15 : quinze</td><td>70 : soixante-dix</td></tr>
+<tr><td>6 : six</td><td>16 : seize</td><td>80 : quatre-vingts</td></tr>
+<tr><td>7 : sept</td><td>17 : dix-sept</td><td>90 : quatre-vingt-dix</td></tr>
+<tr><td>8 : huit</td><td>18 : dix-huit</td><td>100 : cent</td></tr>
+<tr><td>9 : neuf</td><td>19 : dix-neuf</td><td>1 000 : mille</td></tr>
+<tr><td></td><td></td><td>1 000 000 : un million</td></tr>
+<tr><td></td><td></td><td>1 000 000 000 : un milliard</td></tr>
+</table>
+
+<div class="remarque"><span class="remarque-label">Règles d'écriture :</span>
+<ul style="margin-top:4px;">
+  <li>On met un tiret entre chaque mot.</li>
+  <li>Jamais de s à "mille".</li>
+  <li>Un s à "cent" et à "quatre-vingts" seulement s'il n'y a rien après.</li>
+</ul>
+</div>
+
+<h3>Le tableau de numération</h3>
+<table class="tn-table">
+<tr>
+  <th class="tn-groupe" colspan="3">Classe des Milliards</th>
+  <th class="tn-groupe tn-start" colspan="3">Classe des Millions</th>
+  <th class="tn-groupe tn-start" colspan="3">Classe des Mille</th>
+  <th class="tn-groupe tn-start" colspan="3">Classe des Unités</th>
+</tr>
+<tr>
+  <th class="tn-sub tn-cent">Centaines</th><th class="tn-sub tn-diz">dizaines</th><th class="tn-sub tn-unit">unités</th>
+  <th class="tn-sub tn-cent tn-start">centaines</th><th class="tn-sub tn-diz">dizaines</th><th class="tn-sub tn-unit">unités</th>
+  <th class="tn-sub tn-cent tn-start">centaines</th><th class="tn-sub tn-diz">dizaines</th><th class="tn-sub tn-unit">unités</th>
+  <th class="tn-sub tn-cent tn-start">centaines</th><th class="tn-sub tn-diz">dizaines</th><th class="tn-sub tn-unit">unités</th>
+</tr>
+<tr>
+  <td class="tn-nombre"></td><td class="tn-nombre">1</td><td class="tn-nombre">7</td>
+  <td class="tn-nombre tn-start">2</td><td class="tn-nombre">4</td><td class="tn-nombre">6</td>
+  <td class="tn-nombre tn-start">8</td><td class="tn-nombre">0</td><td class="tn-nombre">3</td>
+  <td class="tn-nombre tn-start">5</td><td class="tn-nombre">9</td><td class="tn-nombre">2</td>
+</tr>
+</table>
+
+<h3>La droite graduée</h3>
+<div class="droite-graduee">
+  <svg width="500" height="80" viewBox="0 0 500 80">
+    <line x1="20" y1="50" x2="480" y2="50" stroke="#222" stroke-width="2"/>
+    <polygon points="480,50 470,45 470,55" fill="#222"/>
+    <g font-family="Nunito, sans-serif" font-size="13">
+      <line x1="20" y1="45" x2="20" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="20" y="70" text-anchor="middle">0</text>
+      <line x1="60" y1="45" x2="60" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="60" y="70" text-anchor="middle">1</text>
+      <line x1="100" y1="45" x2="100" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="100" y="70" text-anchor="middle">2</text>
+      <circle cx="140" cy="50" r="4" fill="#c0392b"/>
+      <text x="140" y="35" text-anchor="middle" font-weight="700">A</text>
+      <text x="140" y="70" text-anchor="middle">3</text>
+      <line x1="180" y1="45" x2="180" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="180" y="70" text-anchor="middle">4</text>
+      <line x1="220" y1="45" x2="220" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="220" y="70" text-anchor="middle">5</text>
+      <line x1="260" y1="45" x2="260" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="260" y="70" text-anchor="middle">6</text>
+      <circle cx="300" cy="50" r="4" fill="#c0392b"/>
+      <text x="300" y="35" text-anchor="middle" font-weight="700">B</text>
+      <text x="300" y="70" text-anchor="middle">7</text>
+      <line x1="340" y1="45" x2="340" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="340" y="70" text-anchor="middle">8</text>
+      <line x1="380" y1="45" x2="380" y2="55" stroke="#222" stroke-width="2"/>
+      <text x="380" y="70" text-anchor="middle">9</text>
+      <circle cx="420" cy="50" r="4" fill="#c0392b"/>
+      <text x="420" y="35" text-anchor="middle" font-weight="700">C</text>
+      <text x="420" y="70" text-anchor="middle">10</text>
+    </g>
+  </svg>
+</div>
+<p style="font-size:13px; color:#555; text-align:center;">A(3) - B(7) - C(10)</p>
+
+</body>
+</html>
+

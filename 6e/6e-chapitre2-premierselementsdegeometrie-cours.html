@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Chapitre 2 - Premiers éléments de géométrie</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: #222;
+    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #222;
+    padding-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 28px;
+    margin-bottom: 8px;
+    color: #c62828;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    color: #6b6b6b;
+  }
+
+  .def {
+    border-left: 4px solid #2e7d32;
+    padding: 8px 14px;
+    margin: 10px 0;
+  }
+
+  .def-label {
+    font-weight: 700;
+    color: #1b5e20;
+  }
+
+  .ex {
+    border-left: 4px solid #1565c0;
+    padding: 8px 14px;
+    margin: 8px 0 14px 0;
+    font-size: 15px;
+  }
+
+  .ex-label {
+    font-weight: 700;
+    color: #0d47a1;
+  }
+
+  .prop {
+    border-left: 4px solid #ad1457;
+    padding: 8px 14px;
+    margin: 10px 0;
+  }
+
+  .prop-label {
+    font-weight: 700;
+    color: #880e4f;
+  }
+
+  .remarque {
+    border-left: 4px solid #e65100;
+    padding: 8px 14px;
+    margin: 10px 0;
+  }
+
+  .remarque-label {
+    font-weight: 700;
+    color: #b23c00;
+  }
+
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  .annexe-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    background: #eee;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .annexe-sub {
+    font-size: 13px;
+    text-align: center;
+    color: #555;
+    margin-top: -12px;
+    margin-bottom: 24px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  th, td {
+    border: 1px solid #999;
+    padding: 8px 10px;
+    text-align: center;
+  }
+
+  th {
+    background: #f0f0f0;
+  }
+
+  .vocab-table td:first-child {
+    text-align: left;
+  }
+
+  .vocab-table td:nth-child(4) {
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .schema-block {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  @media print {
+    body { padding: 15px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<a href='/6e/6e-index' style='display:inline-block; margin-bottom:20px; color:#666; text-decoration:none; font-size:14px;'>&larr; Retour aux chapitres de 6e</a>
+<h1>Chapitre 2 : Premiers éléments de géométrie</h1>
+
+<h2>I. Vocabulaire et codage</h2>
+<table class="vocab-table">
+<tr>
+  <th>Vocabulaire</th>
+  <th>Représentation</th>
+  <th>Notation</th>
+  <th>Commentaires</th>
+</tr>
+<tr>
+  <td>Le <b>point</b> A</td>
+  <td>
+    <svg width="60" height="40" viewBox="0 0 60 40">
+      <text x="20" y="18" font-size="13" font-weight="700">A</text>
+      <text x="16" y="30" font-size="18" font-weight="700">×</text>
+    </svg>
+  </td>
+  <td>A</td>
+  <td>On représente un point à l'aide d'une <b>croix ×</b>. On nomme un point par une <b>lettre majuscule</b>.</td>
+</tr>
+<tr>
+  <td>Le <b>segment</b> ayant pour <b>extrémités</b> le point A et le point B</td>
+  <td>
+    <svg width="90" height="40" viewBox="0 0 90 40">
+      <line x1="20" y1="26" x2="70" y2="26" stroke="#222" stroke-width="1.5"/>
+      <text x="14" y="14" font-size="13" font-weight="700">A</text>
+      <text x="16" y="30" font-size="18" font-weight="700">×</text>
+      <text x="64" y="14" font-size="13" font-weight="700">B</text>
+      <text x="66" y="30" font-size="18" font-weight="700">×</text>
+    </svg>
+  </td>
+  <td>[AB]</td>
+  <td>On peut mesurer la longueur d'un segment à l'aide d'une règle graduée.</td>
+</tr>
+<tr>
+  <td>La <b>demi-droite</b> qui a pour <b>origine</b> le point A et qui passe par B</td>
+  <td>
+    <svg width="100" height="40" viewBox="0 0 100 40">
+      <line x1="20" y1="26" x2="95" y2="26" stroke="#222" stroke-width="1.5"/>
+      <text x="14" y="14" font-size="13" font-weight="700">A</text>
+      <text x="16" y="30" font-size="18" font-weight="700">×</text>
+      <text x="54" y="14" font-size="13" font-weight="700">B</text>
+      <text x="56" y="30" font-size="18" font-weight="700">×</text>
+    </svg>
+  </td>
+  <td>[AB)</td>
+  <td>Une demi-droite est <b>illimitée</b> : on ne peut pas la mesurer.</td>
+</tr>
+<tr>
+  <td>La <b>droite</b> qui passe par le point A et par le point B</td>
+  <td>
+    <svg width="100" height="40" viewBox="0 0 100 40">
+      <line x1="5" y1="26" x2="95" y2="26" stroke="#222" stroke-width="1.5"/>
+      <text x="24" y="14" font-size="13" font-weight="700">A</text>
+      <text x="26" y="30" font-size="18" font-weight="700">×</text>
+      <text x="54" y="14" font-size="13" font-weight="700">B</text>
+      <text x="56" y="30" font-size="18" font-weight="700">×</text>
+    </svg>
+  </td>
+  <td>(AB)</td>
+  <td rowspan="2">Une droite est <b>illimitée</b> : on ne peut pas la mesurer.</td>
+</tr>
+<tr>
+  <td>La <b>droite</b> (d)</td>
+  <td>
+    <svg width="100" height="40" viewBox="0 0 100 40">
+      <line x1="5" y1="32" x2="95" y2="8" stroke="#222" stroke-width="1.5"/>
+      <text x="70" y="34" font-size="13" font-weight="700">(d)</text>
+    </svg>
+  </td>
+  <td>(d)</td>
+</tr>
+</table>
+
+<h2>II. Positions d'un point</h2>
+
+<h3>A. Droites sécantes</h3>
+<div class="def"><span class="def-label">Définition :</span> Deux droites <b>sécantes</b> sont deux droites ayant un seul point commun. Ce point commun s'appelle le <b>point d'intersection</b> des deux droites.</div>
+<div class="ex"><span class="ex-label">Exemple :</span>
+<div class="schema-block">
+  <svg width="220" height="100" viewBox="0 0 220 100">
+    <line x1="20" y1="20" x2="200" y2="80" stroke="#222" stroke-width="1.5"/>
+    <line x1="20" y1="80" x2="200" y2="20" stroke="#222" stroke-width="1.5"/>
+    <text x="18" y="14" font-size="13" font-weight="700">(d)</text>
+    <text x="185" y="14" font-size="13" font-weight="700">(d')</text>
+    <text x="104" y="44" font-size="13" font-weight="700">A</text>
+  </svg>
+</div>
+<p style="margin:6px 0 0;">A est le point d'intersection des deux droites (d) et (d').<br>On dit que (d) et (d') sont ............................... en A.</p>
+</div>
+<div class="remarque"><span class="remarque-label">Remarque :</span> (d') se lit « d prime ».</div>
+
+<h3>B. Points alignés</h3>
+<div class="def"><span class="def-label">Définition :</span> Des points sont <b>alignés</b> lorsqu'ils appartiennent à la même droite.</div>
+<div class="ex"><span class="ex-label">Exemple :</span>
+<div class="schema-block">
+  <svg width="220" height="50" viewBox="0 0 220 50">
+    <line x1="15" y1="30" x2="205" y2="30" stroke="#222" stroke-width="1.5"/>
+    <text x="12" y="18" font-size="13" font-weight="700">A</text>
+    <text x="20" y="30" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="98" y="18" font-size="13" font-weight="700">B</text>
+    <text x="105" y="30" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="185" y="18" font-size="13" font-weight="700">C</text>
+    <text x="192" y="30" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+  </svg>
+</div>
+<p style="margin:6px 0 0;">Les points A, B et C sont ...............................<br>Ils appartiennent à la même droite.</p>
+</div>
+
+<h3>C. Appartenance à une droite</h3>
+<div class="remarque"><span class="remarque-label">Remarque :</span> Le symbole <b>∈</b> signifie « appartient à ». Le symbole <b>∉</b> signifie « n'appartient pas à ».</div>
+<div class="ex"><span class="ex-label">Exemple :</span>
+<div class="schema-block">
+  <svg width="240" height="90" viewBox="0 0 240 90">
+    <line x1="15" y1="30" x2="225" y2="30" stroke="#222" stroke-width="1.5"/>
+    <text x="12" y="18" font-size="13" font-weight="700">A</text>
+    <text x="20" y="30" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="108" y="18" font-size="13" font-weight="700">B</text>
+    <text x="115" y="30" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="205" y="18" font-size="13" font-weight="700">C</text>
+    <text x="212" y="30" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="150" y="65" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="146" y="82" font-size="13" font-weight="700">D</text>
+  </svg>
+</div>
+<p style="margin:6px 0 0;">Le point B appartient à la droite (AC). On note : B ∈ (AC)<br>Le point D n'appartient pas à la droite (AC). On note : D ∉ (AC)</p>
+</div>
+
+<h2>III. Longueur et milieu d'un segment</h2>
+<div class="def"><span class="def-label">Définition :</span> La <b>distance</b> entre deux points est la longueur du segment qui a pour extrémités ces deux points.</div>
+<div class="ex"><span class="ex-label">Exemple :</span>
+<div class="schema-block">
+  <svg width="200" height="40" viewBox="0 0 200 40">
+    <line x1="15" y1="20" x2="185" y2="20" stroke="#222" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="8" y="12" font-size="13" font-weight="700">A</text>
+    <text x="15" y="20" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="182" y="12" font-size="13" font-weight="700">B</text>
+    <text x="185" y="20" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+  </svg>
+</div>
+<p style="margin:6px 0 0;">La distance entre A et B est la longueur du segment [AB].<br>On la note AB et on écrit AB = ...............................</p>
+</div>
+
+<div class="def"><span class="def-label">Définition :</span> Le <b>milieu</b> d'un segment est le point de ce segment qui le partage en deux segments de même longueur.</div>
+<div class="ex"><span class="ex-label">Exemple :</span>
+<div class="schema-block">
+  <svg width="320" height="130" viewBox="0 0 320 130">
+    <line x1="70" y1="25" x2="250" y2="25" stroke="#222" stroke-width="1.5"/>
+    <text x="64" y="14" font-size="13" font-weight="700">E</text>
+    <text x="70" y="25" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="156" y="14" font-size="13" font-weight="700">M</text>
+    <text x="160" y="25" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <text x="246" y="14" font-size="13" font-weight="700">F</text>
+    <text x="250" y="25" font-size="18" font-weight="700" text-anchor="middle" dominant-baseline="middle">×</text>
+    <line x1="110" y1="20" x2="115" y2="30" stroke="#222" stroke-width="1.5"/>
+    <line x1="200" y1="20" x2="205" y2="30" stroke="#222" stroke-width="1.5"/>
+
+    <text x="160" y="105" font-size="12" text-anchor="middle">Ces codages signifient que les longueurs EM</text>
+    <text x="160" y="120" font-size="12" text-anchor="middle">et MF sont égales.</text>
+
+    <line x1="120" y1="95" x2="112" y2="38" stroke="#555" stroke-width="1"/>
+    <polygon points="112,38 108,47 117,44" fill="#555"/>
+
+    <line x1="200" y1="95" x2="204" y2="38" stroke="#555" stroke-width="1"/>
+    <polygon points="204,38 199,45 209,44" fill="#555"/>
+  </svg>
+</div>
+<p style="margin:6px 0 0;">M est le ............................... de [EF] car EM = MF.</p>
+</div>
+
+</body>
+</html>
+
