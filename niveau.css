@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #222;
+  background: #fafafa;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 30px 60px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+h1 { font-size: 26px; font-weight: 700; margin-bottom: 20px; }
+
+h2 {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #666;
+  margin: 32px 0 10px;
+}
+
+.chapitres { display: flex; flex-direction: column; gap: 10px; }
+
+.chapitre-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: #222;
+  font-size: 16px;
+}
+
+.chapitre-num { font-weight: 700; margin-right: 12px; }
+
+.chapitre-texte small { display: block; font-size: 13px; color: #777; margin-top: 2px; }
+
+.boutons { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.btn {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 14px;
+  border: 1px solid #222;
+  color: #222;
+  text-decoration: none;
+  background: #fff;
+}
+
+a.btn:hover { background: #222; color: #fff; }
+
+.chapitre-disabled {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #888;
+  border-style: dashed;
+}
+
+.statut {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: #eee;
+  color: #666;
+}
+
+.info {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.info p { margin: 0 0 6px; }
+.info ul { margin: 0; padding-left: 20px; }

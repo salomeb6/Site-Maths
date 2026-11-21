@@ -4,112 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>1ère Spé Maths - Mes cours de maths</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
-
-  body {
-    font-family: 'Nunito', sans-serif;
-    color: #222;
-    background: #fafafa;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 40px 30px 60px;
-  }
-
-  .back {
-    display: inline-block;
-    margin-bottom: 24px;
-    color: #666;
-    text-decoration: none;
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 30px;
-  }
-
-  .chapitres {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .chapitre-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 14px 18px;
-    text-decoration: none;
-    color: #222;
-    font-size: 16px;
-  }
-
-  .chapitre-card:hover {
-    border-color: #222;
-    background: #f5f5f5;
-  }
-
-  .chapitre-num {
-    font-weight: 700;
-    margin-right: 12px;
-  }
-
-  .chapitre-disabled {
-    color: #aaa;
-    border-style: dashed;
-  }
-
-  h2.section { font-size: 18px; font-weight: 700; margin: 34px 0 12px; }
-  .info { background: #fff; border: 1px solid #ccc; border-radius: 10px; padding: 14px 18px; font-size: 15px; line-height: 1.5; }
-  .info p { margin: 0 0 6px; }
-  .info ul { margin: 0; padding-left: 20px; }
-  .chapitre-card .tag { font-size: 13px; color: #888; margin-left: 12px; white-space: nowrap; }
-</style>
+<link rel="stylesheet" href="/niveau.css">
 </head>
 <body>
 
 <a class='back' href='/'>&larr; Retour aux niveaux</a>
 <h1>1ère Spé Maths - Liste des chapitres</h1>
 
-<h2 class="section">Cours</h2>
+<h2>Analyse</h2>
 <div class="chapitres">
-  <a class='chapitre-card' href='/1ere-spe-maths/1ere-chapitre1-seconddegre-cours'>
-    <span><span class="chapitre-num">Chapitre 1</span> Fonctions polynômes du second degré</span>
-  </a>
-  <a class='chapitre-card' href='/1ere-spe-maths/1ere-chapitre2-derivation-cours'>
-    <span><span class="chapitre-num">Chapitre 2</span> Dérivations</span><span class="tag">Parties 1 et 2</span>
-  </a>
+  <div class='chapitre-card'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 1</span> Fonctions polynômes du second degré<small>Forme canonique, discriminant, racines, signe du trinôme</small></span><div class="boutons"><a class='btn' href='/1ere-spe-maths/1ere-chapitre1-seconddegre-cours'>Cours</a><a class='btn' href='/1ere-spe-maths/1ere-interro1-seconddegre'>Interro 1</a><a class='btn' href='/1ere-spe-maths/1ere-interro2-seconddegre'>Interro 2</a><a class='btn' href='/1ere-spe-maths/1ere-preeval1-seconddegre-derivation'>Pré-éval 1</a><a class='btn' href='/1ere-spe-maths/1ere-evaluation1-seconddegre-derivation'>Évaluation 1</a></div></div>
+  <div class='chapitre-card'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 2</span> Dérivations<small>Nombre dérivé, tangente, fonction dérivée</small></span><div class="boutons"><a class='btn' href='/1ere-spe-maths/1ere-chapitre2-derivation-cours'>Cours</a><a class='btn' href='/1ere-spe-maths/1ere-interro3-derivation'>Interro 3</a><a class='btn' href='/1ere-spe-maths/1ere-preeval1-seconddegre-derivation'>Pré-éval 1</a><a class='btn' href='/1ere-spe-maths/1ere-evaluation1-seconddegre-derivation'>Évaluation 1</a></div></div>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 4</span> Variations et courbes représentatives<small>Signe de la dérivée, extremums</small></span><span class='statut'>À faire</span></div>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 5</span> Fonction exponentielle<small>Définition, propriétés, étude de fonctions</small></span><span class='statut'>À faire</span></div>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 6</span> Fonctions trigonométriques<small>Cosinus et sinus, parité, périodicité</small></span><span class='statut'>À faire</span></div>
 </div>
 
-<h2 class="section">Interrogations et évaluations</h2>
+<h2>Suites</h2>
 <div class="chapitres">
-  <a class='chapitre-card' href='/1ere-spe-maths/1ere-interro1-seconddegre'>
-    <span><span class="chapitre-num">Interro n°1</span> Second degré</span><span class="tag">Sujets A et B</span>
-  </a>
-  <a class='chapitre-card' href='/1ere-spe-maths/1ere-interro2-seconddegre'>
-    <span><span class="chapitre-num">Interro n°2</span> Variations du second degré</span><span class="tag">4 sujets</span>
-  </a>
-  <a class='chapitre-card' href='/1ere-spe-maths/1ere-interro3-derivation'>
-    <span><span class="chapitre-num">Interro n°3</span> Dérivation</span><span class="tag">4 sujets</span>
-  </a>
-  <a class='chapitre-card' href='/1ere-spe-maths/1ere-evaluation1-seconddegre-derivation'>
-    <span><span class="chapitre-num">Évaluation n°1</span> Second degré et dérivation</span><span class="tag">Sujets A et B</span>
-  </a>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 3</span> Généralités sur les suites<small>Modes de génération, sens de variation, notion de limite</small></span><span class='statut'>À faire</span></div>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 7</span> Suites arithmétiques et géométriques<small>Formules explicites, sommes de termes</small></span><span class='statut'>À faire</span></div>
 </div>
 
-<h2 class="section">Entraînement</h2>
+<h2>Géométrie</h2>
 <div class="chapitres">
-  <a class='chapitre-card' href='/1ere-spe-maths/1ere-preeval1-seconddegre-derivation'>
-    <span><span class="chapitre-num">Pré-évaluation n°1</span> Second degré et dérivation</span>
-  </a>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 8</span> Trigonométrie<small>Cercle trigonométrique, radian, valeurs remarquables</small></span><span class='statut'>À faire</span></div>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 9</span> Produit scalaire<small>Définitions, propriétés, orthogonalité</small></span><span class='statut'>À faire</span></div>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 10</span> Géométrie repérée<small>Droites, cercles, équations</small></span><span class='statut'>À faire</span></div>
 </div>
 
-<h2 class="section">Épreuve anticipée de mathématiques</h2>
+<h2>Probabilités</h2>
+<div class="chapitres">
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 11</span> Probabilités conditionnelles<small>Arbres, formule des probabilités totales</small></span><span class='statut'>À faire</span></div>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 12</span> Variables aléatoires<small>Loi, espérance, variance</small></span><span class='statut'>À faire</span></div>
+  <div class='chapitre-card chapitre-disabled'><span class="chapitre-texte"><span class="chapitre-num">Chapitre 13</span> Succession d'épreuves et loi binomiale<small>Schéma de Bernoulli, coefficients binomiaux</small></span><span class='statut'>À faire</span></div>
+</div>
+
+<h2>Épreuve anticipée de mathématiques</h2>
 <div class="info">
   <p>En fin de première, en juin, tous les élèves passent une épreuve anticipée de maths :</p>
   <ul>
@@ -121,4 +52,3 @@
 
 </body>
 </html>
-

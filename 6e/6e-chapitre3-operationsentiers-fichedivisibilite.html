@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Fiche aide - Critères de divisibilité</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: #222;
+    background: #fff;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 12px 16px;
+    line-height: 1.2;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #222;
+    padding-bottom: 4px;
+  }
+
+  .critere {
+    display: flex;
+    gap: 8px;
+    margin: 6px 0;
+    align-items: flex-start;
+  }
+
+  .critere-num {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e65100;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .critere-content {
+    flex: 1;
+  }
+
+  .critere-regle {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
+  .critere-regle b {
+    color: #b23c00;
+  }
+
+  .critere-exemple {
+    border-left: 3px solid #1565c0;
+    padding: 2px 8px;
+    font-size: 11px;
+  }
+
+  .critere-exemple .ex-label {
+    font-weight: 700;
+    color: #0d47a1;
+  }
+
+  .critere-exemple ul {
+    margin: 2px 0 0;
+    padding-left: 14px;
+  }
+
+  @media print {
+    body { padding: 8px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Fiche aide - Critères de divisibilité</h1>
+
+<div class="critere">
+  <div class="critere-num">2</div>
+  <div class="critere-content">
+    <div class="critere-regle">Un nombre entier est <b>divisible par 2</b> s'il se termine par 0 ; 2 ; 4 ; 6 ou 8.</div>
+    <div class="critere-exemple"><span class="ex-label">Exemple :</span> 14 est divisible par 2 mais 13 n'est pas divisible par 2.</div>
+  </div>
+</div>
+
+<div class="critere">
+  <div class="critere-num">3</div>
+  <div class="critere-content">
+    <div class="critere-regle">Un nombre entier est <b>divisible par 3</b> si la somme de ses chiffres est un multiple de 3.</div>
+    <div class="critere-exemple"><span class="ex-label">Exemples :</span>
+      <ul>
+        <li>623 n'est pas divisible par 3 car 6 + 2 + 3 = 11 et 11 n'est pas un multiple de 3.</li>
+        <li>912 est divisible par 3 car 9 + 1 + 2 = 12 et 12 est un multiple de 3.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="critere">
+  <div class="critere-num">4</div>
+  <div class="critere-content">
+    <div class="critere-regle">Un nombre entier est <b>divisible par 4</b> si le nombre formé par ses 2 derniers chiffres est un multiple de 4.</div>
+    <div class="critere-exemple"><span class="ex-label">Exemple :</span> 324 est divisible par 4 car 24 est un multiple de 4.</div>
+  </div>
+</div>
+
+<div class="critere">
+  <div class="critere-num">5</div>
+  <div class="critere-content">
+    <div class="critere-regle">Un nombre entier est <b>divisible par 5</b> s'il se termine par 0 ou par 5.</div>
+    <div class="critere-exemple"><span class="ex-label">Exemples :</span>
+      <ul>
+        <li>420 est divisible par 5.</li>
+        <li>65 est divisible par 5.</li>
+        <li>68 n'est pas divisible par 5.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="critere">
+  <div class="critere-num">9</div>
+  <div class="critere-content">
+    <div class="critere-regle">Un nombre entier est <b>divisible par 9</b> si la somme de ses chiffres est un multiple de 9.</div>
+    <div class="critere-exemple"><span class="ex-label">Exemple :</span> 3 717 est divisible par 9 car 3 + 7 + 1 + 7 = 18 et 18 est un multiple de 9 (il est aussi divisible par 3, puisque 18 est un multiple de 3).</div>
+  </div>
+</div>
+
+<div class="critere">
+  <div class="critere-num">10</div>
+  <div class="critere-content">
+    <div class="critere-regle">Un nombre entier est <b>divisible par 10</b> s'il se termine par 0.</div>
+    <div class="critere-exemple"><span class="ex-label">Exemples :</span> 60 est divisible par 10 mais 325 n'est pas divisible par 10.</div>
+  </div>
+</div>
+
+</body>
+</html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="d1320cce-27e4-4a35-97a7-f26072367af6" data-app-host="app.netlify.com"></script>
