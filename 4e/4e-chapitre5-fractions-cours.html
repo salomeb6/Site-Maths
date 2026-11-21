@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4e - Chapitre 5 - Opérations sur les nombres rationnels (partie 1)</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Nunito', Arial, sans-serif; font-size: 12pt; line-height: 1.4; color: #111; max-width: 190mm; margin: 0 auto; padding: 10px; background: #fff; }
+  h1.chapitre { text-align: center; font-size: 17pt; margin: 4px 0 14px; white-space: nowrap; }
+  h2.titre-I { color: #c0392b; font-size: 15pt; margin: 18px 0 8px; }
+  .camemberts { display: flex; justify-content: center; align-items: center; gap: 14px; margin: 4px 0 10px; page-break-inside: avoid; }
+  .cam { text-align: center; }
+  .leg { font-size: 13pt; }
+  .egal { font-size: 18pt; font-weight: 700; }
+  .ex-cols { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 12px; }
+  .ex-col { padding: 0 10px; }
+  .ex-col + .ex-col { border-left: 1.5px solid #888; }
+  .ex-col:first-child { padding-left: 0; }
+  .ex-cols .solution { margin-left: 0; font-size: 11pt; }
+  h3.sous { color: #555; font-size: 13pt; margin: 12px 0 6px; }
+  p { margin: 0 0 8px; }
+  ul.puces, ol.puces { margin: 0 0 8px; padding-left: 24px; }
+  ul.puces li, ol.puces li { margin-bottom: 3px; }
+  strong.label-def { color: #2e8b57; }
+  strong.label-prop { color: #c2407a; }
+  strong.label-rem { color: #d35400; }
+  strong.label-ex { color: #4a7fb5; }
+  .instruction { font-style: italic; }
+  .instruction .m { font-style: normal; }
+  .box { border: 2px dashed; border-radius: 8px; padding: 8px 12px; margin: 8px 0 12px; page-break-inside: avoid; }
+  .box.def { border-color: #2e8b57; }
+  .box.prop { border-color: #c2407a; }
+  .box.meth { border-color: #d35400; }
+  .box ol.puces:last-child { margin-bottom: 0; }
+  .box p:last-child { margin-bottom: 0; }
+  .formule { text-align: center; font-weight: 700; margin: 8px 0; }
+  .m i { font-style: italic; }
+  .fr { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; line-height: 1.15; margin: 0 2px; }
+  .fr > span { padding: 0 3px; }
+  .fr > span:first-child { border-bottom: 1.5px solid currentColor; }
+  .ligne { margin: 6px 0; }
+  .back { display: inline-block; margin-bottom: 20px; color: #666; text-decoration: none; font-size: 14px; }
+  @media print { .back { display: none; } }
+  .solution { margin: 4px 0 16px 22px; line-height: 2.1; }
+</style>
+</head>
+<body>
+<a class='back' href='/4e/4e-index'>&larr; Retour aux chapitres de 4e</a>
+
+  <h1 class="chapitre">Chapitre 5 : Opérations sur les nombres rationnels (partie 1)</h1>
+
+  <h2 class="titre-I" style="margin-top:0;">I. Égalité de fractions</h2>
+
+  <p><strong class="label-rem">Rappel :</strong> Une fraction est un quotient : <span class="m"><span class="fr"><span><i>a</i></span><span><i>b</i></span></span> = <i>a</i> ÷ <i>b</i></span> (avec <span class="m"><i>b</i> ≠ 0</span>).</p>
+
+  <div class="box prop">
+    <p><strong class="label-prop">Propriété :</strong> On ne change pas la valeur d'une fraction quand on <strong>multiplie</strong> ou qu'on <strong>divise</strong> son numérateur et son dénominateur par un <strong>même nombre non nul</strong>.</p>
+    <p class="formule"><span class="fr"><span><i>a</i></span><span><i>b</i></span></span> = <span class="fr"><span><i>a</i> × <i>k</i></span><span><i>b</i> × <i>k</i></span></span> &nbsp;&nbsp;et&nbsp;&nbsp; <span class="fr"><span><i>a</i></span><span><i>b</i></span></span> = <span class="fr"><span><i>a</i> ÷ <i>k</i></span><span><i>b</i> ÷ <i>k</i></span></span> &nbsp;&nbsp;avec <i>k</i> ≠ 0</p>
+  </div>
+
+  <div class="camemberts">
+    <div class="cam"><svg width="62" height="62" viewBox="0 0 100 100"><path d="M50,50 L50.00,5.00 A45,45 0 0 1 95.00,50.00 Z" fill="#f0a04b" stroke="#222" stroke-width="1.5"/><path d="M50,50 L95.00,50.00 A45,45 0 0 1 50.00,95.00 Z" fill="#f0a04b" stroke="#222" stroke-width="1.5"/><path d="M50,50 L50.00,95.00 A45,45 0 0 1 5.00,50.00 Z" fill="#f0a04b" stroke="#222" stroke-width="1.5"/><path d="M50,50 L5.00,50.00 A45,45 0 0 1 50.00,5.00 Z" fill="#fff" stroke="#222" stroke-width="1.5"/></svg></div><div class="leg"><span class="fr"><span>……</span><span>……</span></span></div>
+    <div class="egal">=</div>
+    <div class="leg"><span class="fr"><span>……</span><span>……</span></span></div><div class="cam"><svg width="62" height="62" viewBox="0 0 100 100"><path d="M50,50 L50.00,5.00 A45,45 0 0 1 81.82,18.18 Z" fill="#7fb3d5" stroke="#222" stroke-width="1.5"/><path d="M50,50 L81.82,18.18 A45,45 0 0 1 95.00,50.00 Z" fill="#7fb3d5" stroke="#222" stroke-width="1.5"/><path d="M50,50 L95.00,50.00 A45,45 0 0 1 81.82,81.82 Z" fill="#7fb3d5" stroke="#222" stroke-width="1.5"/><path d="M50,50 L81.82,81.82 A45,45 0 0 1 50.00,95.00 Z" fill="#7fb3d5" stroke="#222" stroke-width="1.5"/><path d="M50,50 L50.00,95.00 A45,45 0 0 1 18.18,81.82 Z" fill="#7fb3d5" stroke="#222" stroke-width="1.5"/><path d="M50,50 L18.18,81.82 A45,45 0 0 1 5.00,50.00 Z" fill="#7fb3d5" stroke="#222" stroke-width="1.5"/><path d="M50,50 L5.00,50.00 A45,45 0 0 1 18.18,18.18 Z" fill="#fff" stroke="#222" stroke-width="1.5"/><path d="M50,50 L18.18,18.18 A45,45 0 0 1 50.00,5.00 Z" fill="#fff" stroke="#222" stroke-width="1.5"/></svg></div>
+  </div>
+
+  <p><strong class="label-ex">Exemple :</strong> <span class="instruction">Compléter.</span></p>
+  <p class="ligne"><span class="m"><span class="fr"><span>12</span><span>16</span></span> = <span class="fr"><span>…</span><span>4</span></span> = <span class="fr"><span>…</span><span>32</span></span></span></p>
+  <div class="solution">
+    <span class="fr"><span>12</span><span>16</span></span> = <span class="fr"><span>12 ÷ 4</span><span>16 ÷ 4</span></span> = <span class="fr"><span>3</span><span>4</span></span> &nbsp;&nbsp;&nbsp; puis &nbsp;&nbsp;&nbsp; <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>3 × 8</span><span>4 × 8</span></span> = <span class="fr"><span>24</span><span>32</span></span><br>
+    <strong><span class="fr"><span>12</span><span>16</span></span> = <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>24</span><span>32</span></span></strong>
+  </div>
+
+  <h2 class="titre-I">II. Simplification de fractions</h2>
+
+  <div class="box def">
+    <p><strong class="label-def">Définition :</strong> Une fraction est <strong>irréductible</strong> quand on ne peut plus la simplifier : son numérateur et son dénominateur sont <strong>les plus petits possibles</strong>.</p>
+  </div>
+
+  <div class="box meth">
+    <p><strong class="label-rem">Méthode :</strong> Pour simplifier une fraction :</p>
+    <ol class="puces">
+      <li>Je cherche un diviseur commun au numérateur et au dénominateur.</li>
+      <li>Je divise le numérateur et le dénominateur par ce nombre.</li>
+      <li>Je recommence jusqu'à obtenir une fraction irréductible.</li>
+    </ol>
+  </div>
+
+  <p><strong class="label-ex">Exemple :</strong> <span class="instruction">Rendre la fraction <span class="m"><span class="fr"><span>42</span><span>56</span></span></span> irréductible.</span></p>
+  <div class="solution">
+    42 et 56 sont pairs : <span class="fr"><span>42</span><span>56</span></span> = <span class="fr"><span>42 ÷ 2</span><span>56 ÷ 2</span></span> = <span class="fr"><span>21</span><span>28</span></span><br>
+    21 et 28 sont dans la table de 7 : <span class="fr"><span>21</span><span>28</span></span> = <span class="fr"><span>21 ÷ 7</span><span>28 ÷ 7</span></span> = <span class="fr"><span>3</span><span>4</span></span><br>
+    <strong><span class="fr"><span>42</span><span>56</span></span> = <span class="fr"><span>3</span><span>4</span></span></strong> (irréductible)
+  </div>
+
+  <h2 class="titre-I">III. Comparer des fractions</h2>
+
+  <div class="box prop">
+    <p><strong class="label-prop">Propriété :</strong> Si deux fractions positives ont le <strong>même dénominateur</strong>, la plus grande est celle qui a le <strong>plus grand numérateur</strong>.</p>
+  </div>
+
+  <p><strong class="label-ex">Exemple :</strong> <span class="instruction">Comparer <span class="m"><span class="fr"><span>5</span><span>9</span></span></span> et <span class="m"><span class="fr"><span>7</span><span>9</span></span></span>.</span></p>
+  <div class="solution">
+    Les deux fractions ont le même dénominateur 9, et 5 &lt; 7, <strong>donc <span class="fr"><span>5</span><span>9</span></span> &lt; <span class="fr"><span>7</span><span>9</span></span></strong>
+  </div>
+
+  <div class="box meth">
+    <p><strong class="label-rem">Méthode :</strong> Pour comparer deux fractions de dénominateurs différents :</p>
+    <ol class="puces">
+      <li>Je les mets au même dénominateur. Si aucun dénominateur n'est un multiple de l'autre, je multiplie les deux dénominateurs entre eux.</li>
+      <li>Je compare les numérateurs.</li>
+      <li>Je conclus avec les fractions de départ.</li>
+    </ol>
+  </div>
+
+  <p><strong class="label-rem">Remarque :</strong> Pour les fractions négatives, on applique les règles des nombres relatifs : la plus petite est la plus éloignée de zéro.</p>
+
+  <p><strong class="label-ex">Exemple :</strong> <span class="instruction">Comparer.</span></p>
+  <div class="ex-cols">
+    <div class="ex-col">
+      <p class="ligne">A. <span class="m"><span class="fr"><span>3</span><span>4</span></span></span> et <span class="m"><span class="fr"><span>5</span><span>8</span></span></span></p>
+      <div class="solution">
+        <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>3 × 2</span><span>4 × 2</span></span> = <span class="fr"><span>6</span><span>8</span></span><br>
+        6 &gt; 5 donc <span class="fr"><span>6</span><span>8</span></span> &gt; <span class="fr"><span>5</span><span>8</span></span><br>
+        <strong>donc <span class="fr"><span>3</span><span>4</span></span> &gt; <span class="fr"><span>5</span><span>8</span></span></strong>
+      </div>
+    </div>
+    <div class="ex-col">
+      <p class="ligne">B. <span class="m">−<span class="fr"><span>5</span><span>6</span></span></span> et <span class="m">−<span class="fr"><span>3</span><span>4</span></span></span></p>
+      <div class="solution">
+        −<span class="fr"><span>5</span><span>6</span></span> = −<span class="fr"><span>5 × 2</span><span>6 × 2</span></span> = −<span class="fr"><span>10</span><span>12</span></span><br>
+        −<span class="fr"><span>3</span><span>4</span></span> = −<span class="fr"><span>3 × 3</span><span>4 × 3</span></span> = −<span class="fr"><span>9</span><span>12</span></span><br>
+        −10 &lt; −9 <strong>donc −<span class="fr"><span>5</span><span>6</span></span> &lt; −<span class="fr"><span>3</span><span>4</span></span></strong>
+      </div>
+    </div>
+    <div class="ex-col">
+      <p class="ligne">C. <span class="m"><span class="fr"><span>2</span><span>3</span></span></span> et <span class="m"><span class="fr"><span>3</span><span>4</span></span></span></p>
+      <div class="solution">
+        3 × 4 = 12<br>
+        <span class="fr"><span>2</span><span>3</span></span> = <span class="fr"><span>2 × 4</span><span>3 × 4</span></span> = <span class="fr"><span>8</span><span>12</span></span> &nbsp; <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>3 × 3</span><span>4 × 3</span></span> = <span class="fr"><span>9</span><span>12</span></span><br>
+        8 &lt; 9 <strong>donc <span class="fr"><span>2</span><span>3</span></span> &lt; <span class="fr"><span>3</span><span>4</span></span></strong>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="titre-I">IV. Additionner et soustraire des fractions</h2>
+
+  <h3 class="sous">A. Les dénominateurs sont les mêmes</h3>
+
+  <div class="box prop">
+    <p><strong class="label-prop">Propriété :</strong> Pour additionner ou soustraire deux fractions de <strong>même dénominateur</strong>, on additionne ou on soustrait les <strong>numérateurs</strong> et on <strong>garde le dénominateur</strong>.</p>
+    <p class="formule"><span class="fr"><span><i>a</i></span><span><i>c</i></span></span> + <span class="fr"><span><i>b</i></span><span><i>c</i></span></span> = <span class="fr"><span><i>a</i> + <i>b</i></span><span><i>c</i></span></span> &nbsp;&nbsp;et&nbsp;&nbsp; <span class="fr"><span><i>a</i></span><span><i>c</i></span></span> − <span class="fr"><span><i>b</i></span><span><i>c</i></span></span> = <span class="fr"><span><i>a</i> − <i>b</i></span><span><i>c</i></span></span> &nbsp;&nbsp;avec <i>c</i> ≠ 0</p>
+  </div>
+
+  <p><strong class="label-rem">Remarque :</strong> On n'additionne <strong>jamais</strong> les dénominateurs : <span class="m"><span class="fr"><span>1</span><span>5</span></span> + <span class="fr"><span>2</span><span>5</span></span> = <span class="fr"><span>3</span><span>5</span></span></span> et pas <span class="m"><span class="fr"><span>3</span><span>10</span></span></span>.</p>
+
+  <p><strong class="label-ex">Exemple :</strong> <span class="instruction">Calculer.</span></p>
+  <p class="ligne"><span class="m"><i>A</i> = <span class="fr"><span>7</span><span>5</span></span> + <span class="fr"><span>−4</span><span>5</span></span></span></p>
+  <div class="solution">
+    <i>A</i> = <span class="fr"><span>7 + (−4)</span><span>5</span></span> = <strong><span class="fr"><span>3</span><span>5</span></span></strong>
+  </div>
+
+  <h3 class="sous">B. Les dénominateurs sont différents</h3>
+
+  <div class="box meth">
+    <p><strong class="label-rem">Méthode :</strong></p>
+    <ol class="puces">
+      <li>Je mets les fractions au même dénominateur (le plus petit multiple commun).</li>
+      <li>J'additionne ou je soustrais les numérateurs, je garde le dénominateur.</li>
+      <li>Je simplifie le résultat si c'est possible.</li>
+    </ol>
+  </div>
+
+  <p><strong class="label-rem">Remarque :</strong> Un nombre entier s'écrit aussi en fraction : <span class="m">2 = <span class="fr"><span>2</span><span>1</span></span> = <span class="fr"><span>2 × 4</span><span>1 × 4</span></span> = <span class="fr"><span>8</span><span>4</span></span></span>.</p>
+
+  <p><strong class="label-ex">Exemple :</strong> <span class="instruction">Calculer et donner le résultat sous forme irréductible.</span></p>
+  <p class="ligne"><span class="m"><i>B</i> = <span class="fr"><span>7</span><span>15</span></span> − <span class="fr"><span>5</span><span>3</span></span></span></p>
+  <div class="solution">
+    <i>B</i> = <span class="fr"><span>7</span><span>15</span></span> − <span class="fr"><span>5 × 5</span><span>3 × 5</span></span> = <span class="fr"><span>7</span><span>15</span></span> − <span class="fr"><span>25</span><span>15</span></span> = <span class="fr"><span>7 − 25</span><span>15</span></span> = <span class="fr"><span>−18</span><span>15</span></span> = <span class="fr"><span>−18 ÷ 3</span><span>15 ÷ 3</span></span> = <strong><span class="fr"><span>−6</span><span>5</span></span></strong>
+  </div>
+  <p class="ligne"><span class="m"><i>C</i> = −<span class="fr"><span>2</span><span>3</span></span> + <span class="fr"><span>3</span><span>4</span></span></span></p>
+  <div class="solution">
+    <i>C</i> = −<span class="fr"><span>2 × 4</span><span>3 × 4</span></span> + <span class="fr"><span>3 × 3</span><span>4 × 3</span></span> = −<span class="fr"><span>8</span><span>12</span></span> + <span class="fr"><span>9</span><span>12</span></span> = <span class="fr"><span>−8 + 9</span><span>12</span></span> = <strong><span class="fr"><span>1</span><span>12</span></span></strong>
+  </div>
+  <p class="ligne"><span class="m"><i>D</i> = 2 − <span class="fr"><span>3</span><span>4</span></span></span></p>
+  <div class="solution">
+    <i>D</i> = <span class="fr"><span>2 × 4</span><span>4</span></span> − <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>8</span><span>4</span></span> − <span class="fr"><span>3</span><span>4</span></span> = <span class="fr"><span>8 − 3</span><span>4</span></span> = <strong><span class="fr"><span>5</span><span>4</span></span></strong>
+  </div>
+
+</body>
+</html>
