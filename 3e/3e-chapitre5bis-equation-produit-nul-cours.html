@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3e - Chapitre 5 bis - Équation produit nul</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 14mm; }
+  body { font-family: 'Nunito', Arial, sans-serif; font-size: 12pt; line-height: 1.4; color: #111; max-width: 190mm; margin: 0 auto; padding: 10px; background: #fff; }
+  h1.chapitre { text-align: center; font-size: 19pt; margin: 4px 0 14px; }
+  h2.titre-I { color: #c0392b; font-size: 15pt; margin: 18px 0 8px; }
+  p { margin: 0 0 8px; }
+  ul.puces, ol.puces { margin: 0 0 8px; padding-left: 24px; }
+  ul.puces li, ol.puces li { margin-bottom: 3px; }
+  strong.label-def { color: #2e8b57; }
+  strong.label-prop { color: #c2407a; }
+  strong.label-rem { color: #d35400; }
+  strong.label-ex { color: #4a7fb5; }
+  .instruction { font-style: italic; }
+  .instruction .m { font-style: normal; }
+  .box { border: 2px dashed; border-radius: 8px; padding: 8px 12px; margin: 8px 0 12px; page-break-inside: avoid; }
+  .box.def { border-color: #2e8b57; }
+  .box.prop { border-color: #c2407a; }
+  .box.meth { border-color: #d35400; }
+  .box ol.puces:last-child { margin-bottom: 0; }
+  .box p:last-child { margin-bottom: 0; }
+  .formule { text-align: center; font-weight: 700; margin: 6px 0; }
+  .espace { margin: 0 0 14px; }
+  .m { font-family: inherit; }
+  .m i { font-style: italic; }
+  table.tab { border-collapse: collapse; width: 100%; margin: 4px 0 12px; }
+  table.tab th, table.tab td { border: 1px solid #555; padding: 6px 8px; vertical-align: top; text-align: left; }
+  table.tab th { font-weight: 700; }
+  .back { display: inline-block; margin-bottom: 20px; color: #666; text-decoration: none; font-size: 14px; }
+  @media print { .back { display: none; } }
+</style>
+</head>
+<body>
+<a class='back' href='/3e/3e-index'>&larr; Retour aux chapitres de 3e</a>
+
+  <h1 class="chapitre">Chapitre 5 bis : Équation produit nul</h1>
+
+  <h2 class="titre-I" style="margin-top:0;">I. Équation produit nul</h2>
+
+  <div class="box def">
+    <p><strong class="label-def">Définition :</strong> Une <strong>équation produit nul</strong> est une équation de la forme <span class="m"><i>A</i> × <i>B</i> = 0</span>, où <span class="m"><i>A</i></span> et <span class="m"><i>B</i></span> sont des expressions.</p>
+  </div>
+
+  <div class="box prop">
+    <p><strong class="label-prop">Propriété :</strong> Si un produit de facteurs est nul, alors l'un au moins de ses facteurs est nul.</p>
+    <p class="formule">Si <span class="m"><i>A</i> × <i>B</i> = 0</span>, alors <span class="m"><i>A</i> = 0</span> ou <span class="m"><i>B</i> = 0</span>.</p>
+  </div>
+
+  <p><strong class="label-rem">Remarque :</strong> On ne peut utiliser cette propriété que si on a <strong>un produit égal à <span class="m">0</span></strong>.</p>
+  <ul class="puces">
+    <li><span class="m">(<i>x</i> + 3)(<i>x</i> − 5) = 0</span> et <span class="m">3<i>x</i>(<i>x</i> − 2) = 0</span> sont des équations produit nul.</li>
+    <li><span class="m">(<i>x</i> + 3)(<i>x</i> − 5) = 7</span> n'est pas une équation produit nul (le produit n'est pas égal à <span class="m">0</span>).</li>
+    <li>Si l'équation n'est pas un produit, on <strong>factorise</strong> d'abord : <span class="m"><i>x</i>² − 3<i>x</i> = 0</span> s'écrit <span class="m"><i>x</i>(<i>x</i> − 3) = 0</span>. On ne divise jamais par <span class="m"><i>x</i></span> : on perdrait la solution <span class="m">0</span>.</li>
+  </ul>
+
+  <div class="box meth">
+  <p><strong class="label-rem">Méthode :</strong> Pour résoudre une équation produit nul :</p>
+  <ol class="puces">
+    <li>On écrit : « Si un produit de facteurs est nul, alors l'un au moins de ses facteurs est nul. »</li>
+    <li>On écrit : <span class="m"><i>A</i> = 0</span> ou <span class="m"><i>B</i> = 0</span>, puis on résout les deux équations.</li>
+    <li>On conclut : l'équation a deux solutions.</li>
+  </ol>
+  </div>
+
+  <p><strong class="label-ex">Exemple :</strong> <span class="instruction">Résoudre l'équation <span class="m">(2<i>x</i> + 6)(<i>x</i> − 4) = 0</span>.</span></p>
+  <div class="espace" style="height:150px;"></div>
+
+  <h2 class="titre-I">II. Équation de la forme <span class="m"><i>x</i>² = <i>a</i></span> avec <span class="m"><i>a</i> &gt; 0</span></h2>
+
+  <div class="box prop">
+    <p><strong class="label-prop">Propriété :</strong> Soit <span class="m"><i>a</i></span> un nombre strictement positif.</p>
+    <p class="formule">L'équation <span class="m"><i>x</i>² = <i>a</i></span> a deux solutions : <span class="m">√<i>a</i></span> et <span class="m">−√<i>a</i></span>.</p>
+  </div>
+
+  <p><strong class="label-rem">Remarque :</strong> Il ne faut pas oublier la solution négative : <span class="m">4² = 16</span> mais aussi <span class="m">(−4)² = 16</span>.</p>
+
+  <p><strong class="label-ex">Exemple :</strong> <span class="instruction">Résoudre les équations suivantes.</span></p>
+  <ol class="puces" style="margin-bottom:4px;">
+    <li><span class="m"><i>x</i>² = 16</span></li>
+  </ol>
+  <div class="espace" style="height:50px;"></div>
+  <ol class="puces" start="2" style="margin-bottom:4px;">
+    <li><span class="m"><i>x</i>² − 5 = 0</span></li>
+  </ol>
+  <div class="espace" style="height:70px;"></div>
+
+  <h2 class="titre-I">III. Lien avec les fonctions : calculer un antécédent</h2>
+
+  <p>Rappel : si <span class="m"><i>f</i>(<i>x</i>) = <i>y</i></span>, alors <span class="m"><i>y</i></span> est <strong>l'image</strong> de <span class="m"><i>x</i></span> par <span class="m"><i>f</i></span>, et <span class="m"><i>x</i></span> est <strong>un antécédent</strong> de <span class="m"><i>y</i></span> par <span class="m"><i>f</i></span>.</p>
+
+  <div class="box prop">
+    <p><strong class="label-prop">Propriété :</strong> Chercher les antécédents d'un nombre <span class="m"><i>b</i></span> par une fonction <span class="m"><i>f</i></span>, c'est <strong>résoudre l'équation</strong> <span class="m"><i>f</i>(<i>x</i>) = <i>b</i></span>.</p>
+  </div>
+
+  <table class="tab">
+    <tr><th style="width:50%">Je cherche l'image de <span class="m">5</span> par <span class="m"><i>f</i></span></th><th>Je cherche un antécédent de <span class="m">5</span> par <span class="m"><i>f</i></span></th></tr>
+    <tr>
+      <td><span class="m">5</span> est le nombre de départ.<br>Je <strong>calcule</strong> <span class="m"><i>f</i>(5)</span>.</td>
+      <td><span class="m">5</span> est le nombre d'arrivée.<br>Je <strong>résous</strong> l'équation <span class="m"><i>f</i>(<i>x</i>) = 5</span>.</td>
+    </tr>
+  </table>
+
+  <div class="box meth">
+  <p><strong class="label-rem">Méthode :</strong> Pour déterminer un antécédent de <span class="m"><i>b</i></span> par le calcul :</p>
+  <ol class="puces">
+    <li>On écrit l'équation <span class="m"><i>f</i>(<i>x</i>) = <i>b</i></span> en remplaçant <span class="m"><i>f</i>(<i>x</i>)</span> par son expression.</li>
+    <li>On résout l'équation.</li>
+    <li>On conclut par une phrase : « Un antécédent de <span class="m"><i>b</i></span> par <span class="m"><i>f</i></span> est ... ».</li>
+  </ol>
+  </div>
+
+  <p><strong class="label-ex">Exemple :</strong></p>
+  <ol class="puces" style="margin-bottom:4px;">
+    <li><span class="instruction">Soit <span class="m"><i>f</i>(<i>x</i>) = 3<i>x</i> − 5</span>. Déterminer un antécédent de <span class="m">7</span> par <span class="m"><i>f</i></span>.</span></li>
+  </ol>
+  <div class="espace" style="height:110px;"></div>
+  <ol class="puces" start="2" style="margin-bottom:4px;">
+    <li><span class="instruction">Soit <span class="m"><i>g</i>(<i>x</i>) = (<i>x</i> − 2)(<i>x</i> + 1)</span>. Déterminer les antécédents de <span class="m">0</span> par <span class="m"><i>g</i></span>.</span></li>
+  </ol>
+  <div class="espace" style="height:120px;"></div>
+
+  <p><strong class="label-rem">Remarque :</strong> Un nombre a toujours <strong>une seule image</strong>, mais il peut avoir <strong>aucun, un ou plusieurs antécédents</strong> (dans l'exemple 2, le nombre <span class="m">0</span> en a deux). Sur la courbe, on lit des valeurs approchées des antécédents ; par le calcul, on obtient les valeurs exactes.</p>
+
+</body>
+</html>
